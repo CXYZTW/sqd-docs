@@ -1,0 +1,65 @@
+---
+title: "Migrate to the Cloud portal"
+---
+
+<Info>
+  SQD Network portals are currently in closed beta. Please report any bugs or suggestions to the [SQD Portal Closed Beta Portal chat](https://t.me/+JHrJZPz34kRjYmFk) or to [Squid Devs](https://t.me/HydraDevs).
+</Info>
+
+This guide walks you through replacing a gateway of the [open private version of SQD Network](/subsquid-network/overview/#open-private-network) with a *portal* of the [permissionless SQD Network](/subsquid-network/overview/#permissionless-public-network) as the primary source of data for your Cloud squids.
+
+SQD team operates two independent portals that serve the needs of Cloud users:
+
+* The dedicated **Cloud Portal** is only visible from within the Cloud, ensuring stable performance for squids deployed there.
+* The **Public Portal** can be accessed from anywhere for easy experimentation and local development.
+
+<Info>
+  We're currently experimenting with tightening the data request complexity limits that may become a part of this release. If you see an HTTP 400 error with a message like this:
+
+  ```
+  Couldn't parse query: query contains X item requests, but only 50 is allowed
+  ```
+
+  where `X` is some number above 50, or any other HTTP 400 response, please let us know.
+</Info>
+
+Here are the steps to migrate:
+
+## Step 1[​](#step-1 "Direct link to Step 1")
+
+Navigate to your squid's folder and install the `portal-api` version of the processor package:
+
+* EVM
+* Substrate
+
+```
+npm i @subsquid/evm-processor@portal-api
+```
+
+```
+npm i @subsquid/substrate-processor@portal-api
+```
+
+## Step 2[​](#step-2 "Direct link to Step 2")
+
+Follow the network-specific instructions from the Cloud:
+
+* [enable the preview mode](https://app.subsquid.io/preview)
+* navigate to [the Portal's page](https://app.subsquid.io/portal)
+* click on the tile of your network to see the instructions
+
+Once you're done, your squid will use the Cloud Portal when deployed and the public portal for local runs.
+
+## Step 3[​](#step-3 "Direct link to Step 3")
+
+Evaluate the performance of your new data source by re-syncing your squid. Follow the zero-downtime update procedure:
+
+1. Deploy your squid into a new slot.
+
+2. Wait for it to sync, observing the improved data fetching.
+
+3. Assign your production tag to the new deployment to redirect the GraphQL requests there.
+
+See [this section](/cloud/resources/slots-and-tags/#zero-downtime-updates) for details.
+
+[Edit this page](https://github.com/subsquid/docs/edit/master/docs/migrate-to-portal-cloud.mdx)

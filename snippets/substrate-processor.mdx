@@ -1,0 +1,25 @@
+```typescript
+import { SubstrateBatchProcessor } from '@subsquid/substrate-processor'
+import { TypeormDatabase } from '@subsquid/typeorm-store'
+
+const processor = new SubstrateBatchProcessor()
+  .setDataSource({
+    archive: 'https://v2.archive.subsquid.io/network/polkadot',
+    chain: 'wss://rpc.polkadot.io'
+  })
+  .addEvent({
+    name: ['Balances.Transfer'],
+    extrinsic: true
+  })
+
+processor.run(new TypeormDatabase(), async (ctx) => {
+  for (let block of ctx.blocks) {
+    for (let event of block.events) {
+      if (event.name === 'Balances.Transfer') {
+        // Handle Substrate transfer events
+        console.log(`Transfer in block ${block.header.height}`)
+      }
+    }
+  }
+})
+```

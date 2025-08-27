@@ -1,0 +1,500 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "SQD Docs",
+  "logo": {
+    "light": "/logos/light.png",
+    "dark": "/logos/dark.png"
+  },
+  "favicon": "/logos/dark.png",
+  "colors": {
+    "primary": "#111111",
+    "light": "#B1A9FF",
+    "dark": "#111111"
+  },
+  "topbarLinks": [
+    {
+      "name": "⭐ GitHub",
+      "url": "https://github.com/subsquid/squid-sdk"
+    }
+  ],
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity"]
+  },
+  "head": [
+    {
+      "tag": "script",
+      "attributes": {
+        "src": "/github-navbar-inject.js",
+        "defer": true
+      }
+    }
+  ],
+  "fonts": {
+    "body": {
+      "family": "Inter"
+    },
+    "heading": {
+      "family": "Inter"
+    }
+  },
+  "navigation": {
+    "languages": [
+      {
+        "language": "en",
+        "tabs": [
+          {
+            "tab": "Home",
+            "pages": ["en/home"]
+          },
+          {
+            "tab": "SDKs",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "en/sdk/overview/sdk-overview",
+                  "en/sdk/quickstart/sdk-quickstart",
+                  "en/sdk/how-to-start/getting-started"
+                ]
+              },
+              {
+                "group": "EVM",
+                "pages": [
+                  "en/sdk/tutorials/evm-tutorials",
+                  "en/sdk/examples/evm-examples",
+                  "en/sdk/reference/evm-reference",
+                  "en/sdk/troubleshooting/sdk-troubleshooting",
+                  "en/sdk/faq/sdk-faq",
+                  "en/sdk/subsquid-vs-thegraph/subsquid-vs-thegraph"
+                ]
+              },
+              {
+                "group": "Solana",
+                "pages": [
+                  "en/sdk/solana-indexing/how-to-start/solana-getting-started",
+                  "en/sdk/solana-indexing/sdk/solana-sdk",
+                  "en/sdk/solana-indexing/network-api/solana-network-api"
+                ]
+              },
+              {
+                "group": "Fuel",
+                "pages": [
+                  "en/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts",
+                  "en/sdk/fuel-indexing/network-api/fuel-network-api"
+                ]
+              },
+              {
+                "group": "Tron",
+                "pages": [
+                  "en/sdk/tron-indexing/indexing-tron-data/tron-indexing-data"
+                ]
+              },
+              {
+                "group": "Subgraphs Support",
+                "pages": [
+                  "en/sdk/subgraphs-support/subgraphs-support"
+                ]
+              },
+              {
+                "group": "CLI Reference",
+                "pages": [
+                  "en/squid-cli/installation/squid-cli-installation",
+                  "en/squid-cli/explorer/squid-cli-explorer"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cloud",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "en/cloud/overview/deployment-workflow"
+                ]
+              },
+              {
+                "group": "Pricing",
+                "pages": [
+                  "en/cloud/pricing/cloud-pricing"
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": [
+                  "en/cloud/reference/cloud-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Network",
+            "groups": [
+              {
+                "group": "Overview",
+                "pages": [
+                  "en/network/overview/network-overview"
+                ]
+              },
+              {
+                "group": "Participation",
+                "pages": [
+                  "en/network/participate/network-participate"
+                ]
+              },
+              {
+                "group": "FAQ",
+                "pages": [
+                  "en/network/faq/network-faq"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Resources",
+            "groups": [
+              {
+                "group": "Networks",
+                "pages": [
+                  "en/supported-networks",
+                  "en/supported-networks/ethereum",
+                  "en/supported-networks/solana",
+                  "en/supported-networks/fuel"
+                ]
+              },
+              {
+                "group": "Documentation",
+                "pages": [
+                  "en/other/glossary/glossary",
+                  "en/other/conduit-integration/conduit-integration"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Support",
+            "groups": [
+              {
+                "group": "Help",
+                "pages": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "tabs": [
+          {
+            "tab": "Inicio",
+            "pages": ["es/home"]
+          },
+          {
+            "tab": "SDKs",
+            "groups": [
+              {
+                "group": "Primeros pasos",
+                "pages": [
+                  "es/sdk/overview/sdk-overview",
+                  "es/sdk/quickstart/sdk-quickstart",
+                  "es/sdk/how-to-start/getting-started"
+                ]
+              },
+              {
+                "group": "EVM",
+                "pages": [
+                  "es/sdk/tutorials/evm-tutorials",
+                  "es/sdk/examples/evm-examples",
+                  "es/sdk/reference/evm-reference",
+                  "es/sdk/troubleshooting/sdk-troubleshooting",
+                  "es/sdk/faq/sdk-faq",
+                  "es/sdk/subsquid-vs-thegraph/subsquid-vs-thegraph"
+                ]
+              },
+              {
+                "group": "Solana",
+                "pages": [
+                  "es/sdk/solana-indexing/how-to-start/solana-getting-started",
+                  "es/sdk/solana-indexing/sdk/solana-sdk",
+                  "es/sdk/solana-indexing/network-api/solana-network-api"
+                ]
+              },
+              {
+                "group": "Fuel",
+                "pages": [
+                  "es/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts",
+                  "es/sdk/fuel-indexing/network-api/fuel-network-api"
+                ]
+              },
+              {
+                "group": "Tron",
+                "pages": [
+                  "es/sdk/tron-indexing/indexing-tron-data/tron-indexing-data"
+                ]
+              },
+              {
+                "group": "Compatibilidad con Subgraphs",
+                "pages": [
+                  "es/sdk/subgraphs-support/subgraphs-support"
+                ]
+              },
+              {
+                "group": "Referencia CLI",
+                "pages": [
+                  "es/squid-cli/installation/squid-cli-installation",
+                  "es/squid-cli/explorer/squid-cli-explorer"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cloud",
+            "groups": [
+              {
+                "group": "Descripción general",
+                "pages": [
+                  "es/cloud/overview/deployment-workflow"
+                ]
+              },
+              {
+                "group": "Precios",
+                "pages": [
+                  "es/cloud/pricing/cloud-pricing"
+                ]
+              },
+              {
+                "group": "Referencia",
+                "pages": [
+                  "es/cloud/reference/cloud-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Red",
+            "groups": [
+              {
+                "group": "Descripción general",
+                "pages": [
+                  "es/network/overview/network-overview"
+                ]
+              },
+              {
+                "group": "Participación",
+                "pages": [
+                  "es/network/participate/network-participate"
+                ]
+              },
+              {
+                "group": "Preguntas frecuentes",
+                "pages": [
+                  "es/network/faq/network-faq"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Recursos",
+            "groups": [
+              {
+                "group": "Redes",
+                "pages": [
+                  "es/supported-networks",
+                  "es/supported-networks/ethereum",
+                  "es/supported-networks/solana",
+                  "es/supported-networks/fuel"
+                ]
+              },
+              {
+                "group": "Documentación",
+                "pages": [
+                  "es/other/glossary/glossary",
+                  "es/other/conduit-integration/conduit-integration"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Soporte",
+            "groups": [
+              {
+                "group": "Ayuda",
+                "pages": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ko",
+        "tabs": [
+          {
+            "tab": "홈",
+            "pages": ["ko/home"]
+          },
+          {
+            "tab": "SDKs",
+            "groups": [
+              {
+                "group": "시작하기",
+                "pages": [
+                  "ko/sdk/overview/sdk-overview",
+                  "ko/sdk/quickstart/sdk-quickstart",
+                  "ko/sdk/how-to-start/getting-started"
+                ]
+              },
+              {
+                "group": "EVM",
+                "pages": [
+                  "ko/sdk/tutorials/evm-tutorials",
+                  "ko/sdk/examples/evm-examples",
+                  "ko/sdk/reference/evm-reference",
+                  "ko/sdk/troubleshooting/sdk-troubleshooting",
+                  "ko/sdk/faq/sdk-faq",
+                  "ko/sdk/subsquid-vs-thegraph/subsquid-vs-thegraph"
+                ]
+              },
+              {
+                "group": "Solana",
+                "pages": [
+                  "ko/sdk/solana-indexing/how-to-start/solana-getting-started",
+                  "ko/sdk/solana-indexing/sdk/solana-sdk",
+                  "ko/sdk/solana-indexing/network-api/solana-network-api"
+                ]
+              },
+              {
+                "group": "Fuel",
+                "pages": [
+                  "ko/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts",
+                  "ko/sdk/fuel-indexing/network-api/fuel-network-api"
+                ]
+              },
+              {
+                "group": "Tron",
+                "pages": [
+                  "ko/sdk/tron-indexing/indexing-tron-data/tron-indexing-data"
+                ]
+              },
+              {
+                "group": "Subgraphs 지원",
+                "pages": [
+                  "ko/sdk/subgraphs-support/subgraphs-support"
+                ]
+              },
+              {
+                "group": "CLI 레퍼런스",
+                "pages": [
+                  "ko/squid-cli/installation/squid-cli-installation",
+                  "ko/squid-cli/explorer/squid-cli-explorer"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Cloud",
+            "groups": [
+              {
+                "group": "개요",
+                "pages": [
+                  "ko/cloud/overview/deployment-workflow"
+                ]
+              },
+              {
+                "group": "가격",
+                "pages": [
+                  "ko/cloud/pricing/cloud-pricing"
+                ]
+              },
+              {
+                "group": "참조",
+                "pages": [
+                  "ko/cloud/reference/cloud-reference"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "네트워크",
+            "groups": [
+              {
+                "group": "개요",
+                "pages": [
+                  "ko/network/overview/network-overview"
+                ]
+              },
+              {
+                "group": "참여",
+                "pages": [
+                  "ko/network/participate/network-participate"
+                ]
+              },
+              {
+                "group": "자주 묻는 질문",
+                "pages": [
+                  "ko/network/faq/network-faq"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "리소스",
+            "groups": [
+              {
+                "group": "네트워크",
+                "pages": [
+                  "ko/supported-networks",
+                  "ko/supported-networks/ethereum",
+                  "ko/supported-networks/solana",
+                  "ko/supported-networks/fuel"
+                ]
+              },
+              {
+                "group": "문서",
+                "pages": [
+                  "ko/other/glossary/glossary",
+                  "ko/other/conduit-integration/conduit-integration"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "지원",
+            "groups": [
+              {
+                "group": "도움말",
+                "pages": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Supported Chains",
+          "href": "https://status.sequence.info/",
+          "icon": "heart-pulse"
+        },
+        {
+          "anchor": "Changelog",
+          "href": "https://0xsequence.featurebase.app/changelog",
+          "icon": "map"
+        }
+      ]
+    }
+  },
+  "redirects": [
+    {
+      "source": "/404",
+      "destination": "/404.html"
+  }],
+  "footer": {
+    "socials": {
+      "github": "https://github.com/subsquid",
+      "twitter": "https://twitter.com/subsquid",
+      "telegram": "https://t.me/hydradevs"
+    }
+  }
+}

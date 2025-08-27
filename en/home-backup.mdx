@@ -1,0 +1,315 @@
+---
+title: "SQD – Build with Subsquid"
+description: "One indexing stack for 200+ chains and multiple VMs — EVM, Substrate, Solana, Fuel, Tron, Starknet"
+mode: "wide"
+---
+
+export default function Home() {
+  const [isClient, setIsClient] = React.useState(false);
+  const [networksData, setNetworksData] = React.useState(null);
+  const [activeVM, setActiveVM] = React.useState('evm');
+  const [lastUpdated, setLastUpdated] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+// Design system
+const container = { width: "100%", maxWidth: 1400, margin: "0 auto", padding: "0 20px" };
+
+const heroCard = {
+background: "linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(6, 182, 212, 0.05))",
+border: "1px solid rgba(45, 212, 191, 0.2)",
+borderRadius: 16,
+padding: "40px 32px",
+marginBottom: 48,
+position: "relative",
+overflow: "hidden",
+};
+
+const featureCard = { background: "rgba(255,255,255,.02)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 12, padding: 24, textAlign: "center" };
+const benchmarkCard = { background: "rgba(255,255,255,.02)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 12, padding: 24 };
+const muted = { color: "rgba(255,255,255,.7)" };
+const btn = { display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 20px", borderRadius: 8, fontWeight: 600, fontSize: 14, textDecoration: "none", border: "1px solid rgba(255,255,255,.1)", color: "#fff", background: "rgba(255,255,255,.05)", transition: "all .2s ease" };
+const btnPrimary = { ...btn, background: "#2dd4bf", border: "1px solid #2dd4bf", color: "#0a0d12" };
+const grid4 = { display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" };
+
+// Helper function
+const formatTime = (timestamp) => {
+try {
+return new Date(timestamp).toLocaleString('en-US', {
+month: 'short',
+day: 'numeric',
+hour: '2-digit',
+minute: '2-digit'
+});
+} catch (e) {
+return '';
+}
+};
+
+React.useEffect(() => {
+setIsClient(true);
+}, []);
+
+React.useEffect(() => {
+if (!isClient) return;
+
+    const loadNetworks = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const response = await fetch('https://v2.archive.subsquid.io/usage');
+        if (!response.ok) throw new Error('Failed to fetch');
+
+        const data = await response.json();
+
+        const byVM = {};
+        const vmCounts = {};
+
+        Object.entries(data).forEach(([slug, network]) => {
+          if (network && network.kind && !network.is_testnet) {
+            const vm = network.kind.toLowerCase();
+            if (!byVM[vm]) {
+              byVM[vm] = [];
+              vmCounts[vm] = 0;
+            }
+            byVM[vm].push([slug, network]);
+            vmCounts[vm]++;
+          }
+        });
+
+        // Sort networks by usage
+        Object.keys(byVM).forEach(vm => {
+          byVM[vm].sort((a, b) => {
+            const usageA = a[1]?.usage_bytes || 0;
+            const usageB = b[1]?.usage_bytes || 0;
+            return usageB - usageA;
+          });
+        });
+
+        const total = Object.values(vmCounts).reduce((sum, count) => sum + count, 0);
+
+        setNetworksData({ byVM, vmCounts, total });
+        setLastUpdated(Date.now());
+        setLoading(false);
+
+      } catch (err) {
+        console.error('Error loading networks:', err);
+        setError('Failed to load networks');
+        setLoading(false);
+      }
+    };
+
+    loadNetworks();
+
+}, [isClient]);
+
+const vmLabels = {
+evm: 'EVM',
+substrate: 'Substrate',
+solana: 'Solana',
+fuel: 'Fuel',
+tron: 'Tron',
+starknet: 'Starknet'
+};
+
+return (
+
+<main style={{ padding: "40px 0", maxWidth: "none", width: "100%" }}>
+<div style={{ marginLeft: "calc(50% - 50vw)", marginRight: "calc(50% - 50vw)", width: "100vw" }}>
+  <div style={container}>
+{/* HERO */}
+<div style={heroCard}>
+<div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 24 }}>
+<div style={{ flex: 1, minWidth: 300 }}>
+<h1 style={{ fontSize: 36, fontWeight: 700, margin: "0 0 16px", lineHeight: 1.2 }}>Rapid custom indexing for any EVM smart contract</h1>
+<p style={{ ...muted, fontSize: 16, margin: "0 0 24px", lineHeight: 1.5 }}>SQD is an open-source framework for building fast, reliable, and maintainable backend software in crypto.</p>
+<div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+<a href="/sdk/quickstart" style={btnPrimary}>Get started</a>
+<a href="/why-subsquid" style={btn}>Why SQD?</a>
+<a href="https://github.com/subsquid" style={btn}>View on GitHub</a>
+</div>
+</div>
+</div>
+</div>
+
+        {/* FEATURES */}
+        <div style={grid4}>
+          {[
+            ["📊", "Powerful local development server", "Build faster & stay unblocked with hot reloading"],
+            ["⚡", "Fast & lean", "SQD indexes ~10x faster than Graph Protocol subgraphs"],
+            ["🔒", "Type safe", "End-to-end type safety & autocomplete with no codegen"],
+            ["🚀", "One-click deploys", "Deploy anywhere that runs Node.js with zero downtime & horizontal scaling"],
+          ].map(([icon, title, desc]) => (
+            <div key={title} style={featureCard}>
+              <div style={{ fontSize: 24, marginBottom: 12 }}>{icon}</div>
+              <h3 style={{ fontSize: 16, fontWeight: 600, margin: "0 0 8px" }}>{title}</h3>
+              <p style={{ ...muted, fontSize: 14, margin: 0, lineHeight: 1.4 }}>{desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* BENCHMARKS */}
+        <div style={{ marginTop: 48 }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, margin: "0 0 24px" }}>Benchmarks</h2>
+          <div style={{ display: "grid", gap: 24, gridTemplateColumns: "1fr 300px" }}>
+            <div style={benchmarkCard}>
+              <div style={{ height: 1 }} />
+            </div>
+            <div style={{ ...benchmarkCard, fontSize: 14, ...muted }}>
+              <p style={{ margin: 0, lineHeight: 1.5 }}>
+                Results of indexing the Rocket Pool ERC20 token contract on mainnet…
+              </p>
+              <a href="#" style={{ color: "#2dd4bf", textDecoration: "none", marginTop: 16, display: "inline-block" }}>
+                Run it yourself →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* SUPPORTED NETWORKS */}
+        <div style={{ marginTop: 48 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 24, flexWrap: "wrap", gap: 16 }}>
+            <div>
+              <h2 style={{ fontSize: 24, fontWeight: 700, margin: "0 0 8px" }}>Supported Networks</h2>
+              <div style={{ ...muted, fontSize: 14 }}>
+                {!isClient ? 'Loading...' :
+                 loading ? 'Loading...' :
+                 error ? error :
+                 networksData ? `${networksData.total} networks supported` :
+                 '0 networks supported'}
+              </div>
+            </div>
+            {isClient && lastUpdated && (
+              <div style={{ ...muted, fontSize: 12 }}>
+                Last updated {formatTime(lastUpdated)}
+              </div>
+            )}
+          </div>
+
+          {/* VM Filters */}
+          {isClient && networksData && networksData.vmCounts && (
+            <div style={{ display: "flex", gap: 8, marginBottom: 24, flexWrap: "wrap" }}>
+              {Object.entries(networksData.vmCounts)
+                .sort(([a], [b]) => {
+                  if (a === 'evm') return -1;
+                  if (b === 'evm') return 1;
+                  return a.localeCompare(b);
+                })
+                .map(([vm, count]) => {
+                  const isActive = vm === activeVM;
+                  return (
+                    <button
+                      key={vm}
+                      onClick={() => setActiveVM(vm)}
+                      style={{
+                        padding: "8px 16px",
+                        borderRadius: 20,
+                        border: `1px solid ${isActive ? '#2dd4bf' : 'rgba(255,255,255,0.2)'}`,
+                        background: isActive ? 'rgba(45,212,191,0.1)' : 'rgba(255,255,255,0.05)',
+                        color: isActive ? '#2dd4bf' : 'rgba(255,255,255,0.8)',
+                        fontSize: 14,
+                        fontWeight: 600,
+                        cursor: "pointer",
+                        transition: "all 0.2s ease"
+                      }}
+                    >
+                      {vmLabels[vm] || vm.toUpperCase()} ({count})
+                    </button>
+                  );
+                })}
+            </div>
+          )}
+
+          {/* Networks Grid */}
+          <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}>
+            {!isClient || loading ? (
+              <div style={{ ...muted, padding: 20, textAlign: "center" }}>Loading networks...</div>
+            ) : error ? (
+              <div style={{ ...muted, padding: 20, textAlign: "center" }}>{error}</div>
+            ) : networksData && networksData.byVM && networksData.byVM[activeVM] ? (
+              networksData.byVM[activeVM].slice(0, 5).map(([slug, network]) => {
+                if (!network || !network.name) return null;
+
+                const status = network.last_updated_at ?
+                  (Date.now() - new Date(network.last_updated_at).getTime() < 7200000 ? '🟢' : '🟡') : '⚫';
+
+                return (
+                  <a
+                    key={slug}
+                    href={`/network/${slug}`}
+                    style={{
+                      background: "rgba(255, 255, 255, 0.02)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      borderRadius: 8,
+                      padding: 16,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 12,
+                      textDecoration: "none",
+                      color: "inherit",
+                      transition: "all 0.2s ease"
+                    }}
+                  >
+                    <div style={{
+                      width: 36,
+                      height: 36,
+                      background: "rgba(45, 212, 191, 0.1)",
+                      borderRadius: 8,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: 700,
+                      fontSize: 14,
+                      color: "#2dd4bf"
+                    }}>
+                      {network.name.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontWeight: 600, fontSize: 16, marginBottom: 4 }}>
+                        {network.name}
+                      </div>
+                      <div style={{ color: "rgba(255, 255, 255, 0.7)", fontSize: 14 }}>
+                        {network.usage || '—'} requests
+                      </div>
+                    </div>
+                    <div style={{ fontSize: 18 }}>{status}</div>
+                  </a>
+                );
+              }).filter(Boolean)
+            ) : (
+              <div style={{ ...muted, padding: 20, textAlign: "center" }}>No networks available</div>
+            )}
+          </div>
+
+          {/* View All Button */}
+          {isClient && networksData && networksData.byVM && networksData.byVM[activeVM] && networksData.byVM[activeVM].length > 5 && (
+            <div style={{ textAlign: "center", marginTop: 24 }}>
+              <a
+                href="/network/overview"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  padding: "12px 24px",
+                  background: "rgba(45, 212, 191, 0.1)",
+                  border: "1px solid rgba(45, 212, 191, 0.3)",
+                  borderRadius: 8,
+                  color: "#2dd4bf",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  transition: "all 0.2s ease"
+                }}
+              >
+                View all {networksData.byVM[activeVM].length} {activeVM.toUpperCase()} networks →
+              </a>
+            </div>
+          )}
+        </div>
+
+      </div>
+    </div>
+    </main>
+
+);
+}

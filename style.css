@@ -1,0 +1,187 @@
+.bg-matrix-dark {
+  background: linear-gradient(
+      0deg,
+      rgba(13, 13, 15, 1) 0%,
+      rgba(13, 13, 15, 0.95) 5%,
+      rgba(13, 13, 15, 0.8) 15%,
+      rgba(17, 17, 17, 0.1) 30%,
+      rgba(17, 17, 17, 0.1) 70%,
+      rgba(13, 13, 15, 0.8) 85%,
+      rgba(13, 13, 15, 0.95) 95%,
+      rgba(13, 13, 15, 1) 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(17, 17, 17, 0.6) 40%,
+      rgba(17, 17, 17, 0.6) 60%,
+      transparent 100%
+    ),
+    url(https://pub-f048362b915448c9b012a2e03c189024.r2.dev/matrix-bg-dark.svg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-matrix-light {
+  background: linear-gradient(
+      0deg,
+      #f0f0f0 0%,
+      rgba(240, 240, 240, 0.6) 30%,
+      rgba(240, 240, 240, 0.6) 70%,
+      #f0f0f0 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(240, 240, 240, 0.6) 40%,
+      rgba(240, 240, 240, 0.6) 60%,
+      transparent 100%
+    ),
+    url(https://pub-f048362b915448c9b012a2e03c189024.r2.dev/matrix-bg-light.svg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(
+      90deg,
+      rgba(17, 17, 17, 0) 0%,
+      rgba(17, 17, 17, 0.75) 50%,
+      rgba(17, 17, 17, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      #111 0%,
+      rgba(17, 17, 17, 0) 40%,
+      rgba(17, 17, 17, 0) 60%,
+      #111 100%
+    ),
+    linear-gradient(
+      270deg,
+      rgba(11, 106, 249, 0.25) 0%,
+      rgba(29, 146, 255, 0.3) 100%
+    );
+}
+
+.bg-gradient-light {
+  background: linear-gradient(
+      180deg,
+      #f0f0f0 0%,
+      rgba(255, 255, 255, 0) 49.83%,
+      #f0f0f0 100%
+    ),
+    linear-gradient(
+      90deg,
+      #d2e4ff 0%,
+      rgba(210, 228, 255, 0.5) 25.3%,
+      rgba(255, 255, 255, 0) 49.83%,
+      rgba(210, 228, 255, 0.5) 75.47%,
+      #d2e4ff 100%
+    );
+}
+
+main {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+
+/* GitHub navbar component */
+nav[role="navigation"] {
+  position: relative;
+}
+
+nav[role="navigation"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 32px;
+  background: var(--background, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+nav[role="navigation"]::before {
+  content: "⭐ GitHub";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--foreground, #374151);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+nav[role="navigation"]:hover::after {
+  transform: translateY(-51px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Make it clickable */
+nav[role="navigation"]::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3C/svg%3E");
+}
+
+/* Add click handler via CSS hack */
+@media (hover: hover) {
+  nav[role="navigation"]::after:hover {
+    cursor: pointer;
+  }
+}
+
+/* Alternative approach - target specific navbar elements */
+.navbar-end,
+.navbar-nav,
+[data-navbar-end] {
+  position: relative;
+}
+
+.navbar-end::after,
+.navbar-nav::after,
+[data-navbar-end]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 28px;
+  background: var(--background, #ffffff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 6px;
+  margin-left: 12px;
+}
+
+.navbar-end::before,
+.navbar-nav::before,
+[data-navbar-end]::before {
+  content: "⭐ SQD";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--foreground, #374151);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  z-index: 1;
+}
