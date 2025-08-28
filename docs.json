@@ -13,7 +13,7 @@
     "dark": "#111111"
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity"]
+    "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity", "cursor", "vscode"]
   },
   "fonts": {
     "body": {
@@ -30,7 +30,7 @@
         "tabs": [
           {
             "tab": "Home",
-            "pages": ["en/home-clean-new"]
+            "pages": ["en/home-simple"]
           },
           {
             "tab": "SDKs",
@@ -137,17 +137,19 @@
             ]
           },
           {
-            "tab": "Resources",
+            "tab": "Data catalog",
             "groups": [
               {
-                "group": "Networks",
+                "group": "Overview",
                 "pages": [
-                  "en/supported-networks",
-                  "en/supported-networks/ethereum",
-                  "en/supported-networks/solana",
-                  "en/supported-networks/fuel"
+                  "en/supported-networks"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "tab": "Resources",
+            "groups": [
               {
                 "group": "Documentation",
                 "pages": [
@@ -470,11 +472,26 @@
       ]
     }
   },
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/subsquid/squid-sdk"
+    },
+    "links": [{
+      "label": "sqd.ai",
+      "href": "https://github.com/subsquid/squid-sdk"
+  }]
+  },
   "redirects": [
     {
       "source": "/404",
       "destination": "/404.html"
   }],
+  "seo": {
+    "metatags": {
+      "robots": "noindex"
+    }
+  },
   "footer": {
     "socials": {
       "github": "https://github.com/subsquid",
