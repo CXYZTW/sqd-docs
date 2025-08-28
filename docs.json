@@ -12,24 +12,9 @@
     "light": "#B1A9FF",
     "dark": "#111111"
   },
-  "topbarLinks": [
-    {
-      "name": "⭐ GitHub",
-      "url": "https://github.com/subsquid/squid-sdk"
-    }
-  ],
   "contextual": {
     "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity"]
   },
-  "head": [
-    {
-      "tag": "script",
-      "attributes": {
-        "src": "/github-navbar-inject.js",
-        "defer": true
-      }
-    }
-  ],
   "fonts": {
     "body": {
       "family": "Inter"
@@ -45,7 +30,7 @@
         "tabs": [
           {
             "tab": "Home",
-            "pages": ["en/home"]
+            "pages": ["en/home-clean-new"]
           },
           {
             "tab": "SDKs",

@@ -1,0 +1,118 @@
+export const NetworksSection = () => {
+  return (
+    <div style={{
+      background: 'var(--background-secondary)',
+      border: '1px solid var(--border-primary)',
+      borderRadius: '12px',
+      padding: '32px',
+      marginBottom: '48px'
+    }}>
+      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '700', marginBottom: '8px' }}>200+ Networks Supported</h2>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '16px' }}>Real-time indexing across all major blockchain ecosystems</p>
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+        gap: '16px',
+        marginBottom: '32px'
+      }}>
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center',
+          transition: 'transform 0.2s ease'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>⟠</div>
+          <div style={{ fontWeight: '600', marginBottom: '4px' }}>Ethereum</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>EVM • Layer 1</div>
+        </div>
+
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center',
+          transition: 'transform 0.2s ease'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>⬟</div>
+          <div style={{ fontWeight: '600', marginBottom: '4px' }}>Polygon</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>EVM • Sidechain</div>
+        </div>
+
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center',
+          transition: 'transform 0.2s ease'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>🔷</div>
+          <div style={{ fontWeight: '600', marginBottom: '4px' }}>Arbitrum</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>EVM • Layer 2</div>
+        </div>
+
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center',
+          transition: 'transform 0.2s ease'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>🔴</div>
+          <div style={{ fontWeight: '600', marginBottom: '4px' }}>Optimism</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>EVM • Layer 2</div>
+        </div>
+
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center',
+          transition: 'transform 0.2s ease'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>◉</div>
+          <div style={{ fontWeight: '600', marginBottom: '4px' }}>Base</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>EVM • Layer 2</div>
+        </div>
+
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center',
+          transition: 'transform 0.2s ease'
+        }}>
+          <div style={{ fontSize: '32px', marginBottom: '12px' }}>◎</div>
+          <div style={{ fontWeight: '600', marginBottom: '4px' }}>Solana</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>Non-EVM • Layer 1</div>
+        </div>
+      </div>
+
+      <div style={{ textAlign: 'center' }}>
+        <a href="/network/overview" style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '12px 24px',
+          background: 'var(--primary)',
+          color: 'white',
+          fontWeight: '600',
+          fontSize: '14px',
+          borderRadius: '8px',
+          textDecoration: 'none'
+        }}>
+          View all networks →
+        </a>
+      </div>
+    </div>
+  );
+};

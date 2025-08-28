@@ -1,0 +1,66 @@
+export const FeaturesGrid = () => {
+  return (
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: '24px',
+      marginBottom: '48px'
+    }}>
+      <div style={{
+        background: 'var(--background-secondary)',
+        border: '1px solid var(--border-primary)',
+        borderRadius: '12px',
+        padding: '24px',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🚀</div>
+        <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>High Performance</h3>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          Process millions of blockchain events with sub-100ms query latency. Built for enterprise-scale applications.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'var(--background-secondary)',
+        border: '1px solid var(--border-primary)',
+        borderRadius: '12px',
+        padding: '24px',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🔧</div>
+        <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Developer Experience</h3>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          Hot reloading, TypeScript support, and instant feedback loops. Ship faster with confidence.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'var(--background-secondary)',
+        border: '1px solid var(--border-primary)',
+        borderRadius: '12px',
+        padding: '24px',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🌐</div>
+        <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Multi-Chain Support</h3>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          Index data from 200+ blockchain networks including Ethereum, Polygon, Arbitrum, and more.
+        </p>
+      </div>
+
+      <div style={{
+        background: 'var(--background-secondary)',
+        border: '1px solid var(--border-primary)',
+        borderRadius: '12px',
+        padding: '24px',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '48px', marginBottom: '16px' }}>🛡️</div>
+        <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>Enterprise Ready</h3>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          99.9% uptime SLA, automatic scaling, monitoring, and alerting. Built for mission-critical applications.
+        </p>
+      </div>
+    </div>
+  );
+};
