@@ -1,0 +1,409 @@
+---
+title: "SQD Developer Platform"
+description: "Power your products with unparalleled real-time, blockchain indexing and Q&A capabilities."
+mode: "custom"
+---
+
+export default function Home() {
+  const [isClient, setIsClient] = React.useState(false);
+  const [activeTab, setActiveTab] = React.useState('curl');
+
+React.useEffect(() => {
+setIsClient(true);
+
+// Inject modern CSS
+if (typeof document !== 'undefined') {
+const style = document.createElement('style');
+style.textContent = `
+.hero-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 40px 24px;
+}
+
+.hero-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 60px;
+}
+
+.hero-title {
+font-size: 32px;
+font-weight: 700;
+color: var(--text-primary);
+margin: 0;
+}
+
+.hero-subtitle {
+font-size: 16px;
+color: var(--text-secondary);
+margin: 8px 0 0 0;
+max-width: 500px;
+}
+
+.quickstart-section {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: var(--background-secondary);
+border: 1px solid var(--border-primary);
+border-radius: 12px;
+padding: 24px;
+margin-bottom: 40px;
+}
+
+.quickstart-content {
+flex: 1;
+}
+
+.quickstart-title {
+font-size: 20px;
+font-weight: 600;
+color: var(--text-primary);
+margin: 0 0 8px 0;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.quickstart-description {
+font-size: 14px;
+color: var(--text-secondary);
+margin: 0;
+}
+
+.start-button {
+background: #6b7280;
+color: white;
+border: none;
+padding: 12px 24px;
+border-radius: 8px;
+font-weight: 600;
+font-size: 14px;
+cursor: pointer;
+transition: background 0.2s;
+}
+
+.start-button:hover {
+background: #4b5563;
+}
+
+.demo-section {
+background: #f5f5f0;
+border: 1px solid var(--border-primary);
+border-radius: 12px;
+padding: 32px;
+margin-bottom: 40px;
+}
+
+.demo-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 24px;
+}
+
+.demo-title {
+font-size: 24px;
+font-weight: 700;
+color: var(--text-primary);
+margin: 0;
+}
+
+.demo-content {
+display: grid;
+grid-template-columns: 280px 1fr;
+gap: 24px;
+}
+
+.demo-sidebar {
+background: white;
+border: 1px solid var(--border-primary);
+border-radius: 8px;
+padding: 16px;
+}
+
+.demo-sidebar h3 {
+font-size: 16px;
+font-weight: 600;
+color: var(--text-primary);
+margin: 0 0 16px 0;
+}
+
+.demo-nav {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.demo-nav li {
+padding: 12px 16px;
+margin: 4px 0;
+border-radius: 6px;
+cursor: pointer;
+font-size: 14px;
+color: var(--text-secondary);
+transition: background 0.2s;
+}
+
+.demo-nav li:hover {
+background: var(--background-secondary);
+}
+
+.demo-nav li.active {
+background: var(--background-secondary);
+color: var(--text-primary);
+font-weight: 500;
+}
+
+.code-demo {
+background: white;
+border: 1px solid var(--border-primary);
+border-radius: 8px;
+overflow: hidden;
+}
+
+.code-tabs {
+display: flex;
+background: var(--background-secondary);
+border-bottom: 1px solid var(--border-primary);
+}
+
+.code-tab {
+padding: 12px 16px;
+font-size: 14px;
+color: var(--text-secondary);
+cursor: pointer;
+border: none;
+background: none;
+transition: all 0.2s;
+}
+
+.code-tab.active {
+color: var(--text-primary);
+background: white;
+border-bottom: 2px solid #3b82f6;
+}
+
+.code-content {
+padding: 24px;
+font-family: 'Monaco', 'Menlo', monospace;
+font-size: 14px;
+line-height: 1.6;
+color: var(--text-primary);
+background: white;
+min-height: 300px;
+}
+
+.get-started-link {
+color: #6b7280;
+text-decoration: underline;
+font-size: 14px;
+margin-top: 16px;
+display: inline-block;
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 24px;
+margin-top: 40px;
+}
+
+.feature-card {
+background: var(--background-secondary);
+border: 1px solid var(--border-primary);
+border-radius: 12px;
+padding: 24px;
+}
+
+.feature-card h3 {
+font-size: 18px;
+font-weight: 600;
+color: var(--text-primary);
+margin: 0 0 12px 0;
+}
+
+.feature-card p {
+font-size: 14px;
+color: var(--text-secondary);
+margin: 0;
+line-height: 1.5;
+}
+
+[data-theme="dark"] .demo-section {
+background: #1f2937;
+}
+
+[data-theme="dark"] .demo-sidebar,
+[data-theme="dark"] .code-demo,
+[data-theme="dark"] .code-content {
+background: #111827;
+}
+
+[data-theme="dark"] .code-tab.active {
+background: #111827;
+}
+`;
+document.head.appendChild(style);
+}
+}, []);
+
+const codeExamples = {
+curl: `curl https://api.sqd.dev/v1/query \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "query": "SELECT * FROM ethereum_blocks WHERE number > 18000000",
+    "network": "ethereum"
+  }'`,
+javascript: `import { SqdClient } from '@sqd/sdk';
+
+const client = new SqdClient({
+apiKey: 'YOUR_API_KEY'
+});
+
+const blocks = await client.query({
+network: 'ethereum',
+query: 'SELECT \* FROM blocks WHERE number > 18000000'
+});`,
+  python: `import sqd
+
+client = sqd.Client(api_key="YOUR_API_KEY")
+
+blocks = client.query(
+network="ethereum",
+query="SELECT \* FROM blocks WHERE number > 18000000"
+)`
+};
+
+return (
+
+  <div className="hero-container">
+    {/* Hero Header */}
+    <div className="hero-header">
+      <div>
+        <h1 className="hero-title">sqd Developer Platform</h1>
+        <p className="hero-subtitle">
+          Power your products with unparalleled real-time, blockchain indexing and Q&A capabilities.
+        </p>
+      </div>
+    </div>
+
+    {/* Quickstart Guide */}
+    <div className="quickstart-section">
+      <div className="quickstart-content">
+        <h2 className="quickstart-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          Quickstart Guide
+        </h2>
+        <p className="quickstart-description">
+          Getting started is simple and fast—make your first API call within minutes.
+        </p>
+      </div>
+      <a href="/sdk/quickstart" className="start-button">
+        Start Building
+      </a>
+    </div>
+
+    {/* Try SQD Demo */}
+    <div className="demo-section">
+      <div className="demo-header">
+        <h2 className="demo-title">Try SQD</h2>
+      </div>
+
+      <div className="demo-content">
+        {/* Sidebar */}
+        <div className="demo-sidebar">
+          <h3>Get the Latest News</h3>
+          <ul className="demo-nav">
+            <li className="active">Domain Search</li>
+            <li>Academic Search</li>
+            <li>Structured Outputs</li>
+          </ul>
+          <a href="/sdk/how-to-start" className="get-started-link">
+            Get started
+          </a>
+        </div>
+
+        {/* Code Demo */}
+        <div className="code-demo">
+          <div className="code-tabs">
+            <button
+              className={`code-tab ${activeTab === 'curl' ? 'active' : ''}`}
+              onClick={() => setActiveTab('curl')}
+            >
+              curl
+            </button>
+            <button
+              className={`code-tab ${activeTab === 'javascript' ? 'active' : ''}`}
+              onClick={() => setActiveTab('javascript')}
+            >
+              javascript
+            </button>
+            <button
+              className={`code-tab ${activeTab === 'python' ? 'active' : ''}`}
+              onClick={() => setActiveTab('python')}
+            >
+              python
+            </button>
+            <div style={{ marginLeft: 'auto', padding: '12px 16px', display: 'flex', gap: '8px' }}>
+              <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>📋</button>
+              <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>↗️</button>
+            </div>
+          </div>
+
+          <div className="code-content">
+            <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+              {codeExamples[activeTab]}
+            </pre>
+            <div style={{ marginTop: '16px', fontSize: '12px', color: '#6b7280' }}>
+              ... See all 12 lines
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Features Grid */}
+    <div className="features-grid">
+      <div className="feature-card">
+        <h3>🚀 High Performance</h3>
+        <p>
+          Process millions of blockchain events with sub-100ms query latency.
+          Built for enterprise-scale applications.
+        </p>
+      </div>
+
+      <div className="feature-card">
+        <h3>🔧 Developer Experience</h3>
+        <p>
+          Hot reloading, TypeScript support, and instant feedback loops.
+          Ship faster with confidence.
+        </p>
+      </div>
+
+      <div className="feature-card">
+        <h3>🌐 Multi-Chain Support</h3>
+        <p>
+          Index data from 200+ blockchain networks including Ethereum,
+          Polygon, Arbitrum, and more.
+        </p>
+      </div>
+
+      <div className="feature-card">
+        <h3>🛡️ Enterprise Ready</h3>
+        <p>
+          99.9% uptime SLA, automatic scaling, monitoring, and alerting.
+          Built for mission-critical applications.
+        </p>
+      </div>
+    </div>
+
+  </div>
+);
+
+}
