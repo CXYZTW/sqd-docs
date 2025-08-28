@@ -5,18 +5,18 @@ mode: "custom"
 ---
 
 export default function Home() {
-  const [isClient, setIsClient] = React.useState(false);
-  const [activeTab, setActiveTab] = React.useState('curl');
-  const [activeVM, setActiveVM] = React.useState('evm');
-  const [networksData, setNetworksData] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
+  const [isClient, setIsClient] = useState(false);
+  const [activeTab, setActiveTab] = useState('curl');
+  const [activeVM, setActiveVM] = useState('evm');
+  const [networksData, setNetworksData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-React.useEffect(() => {
+useEffect(() => {
 setIsClient(true);
 }, []);
 
-React.useEffect(() => {
+useEffect(() => {
 // Load networks data
 if (isClient) {
   const loadNetworks = async () => {
@@ -84,7 +84,7 @@ if (isClient) {
 }
 }, [isClient]);
 
-React.useEffect(() => {
+useEffect(() => {
 // Inject modern CSS
 if (typeof document !== 'undefined') {
 const style = document.createElement('style');
