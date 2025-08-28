@@ -1,0 +1,382 @@
+export const InteractiveNetworks = () => {
+  return (
+    <div style={{
+      background: 'var(--background-secondary)',
+      border: '1px solid var(--border-primary)',
+      borderRadius: '12px',
+      padding: '32px',
+      marginBottom: '48px'
+    }}>
+      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '700', marginBottom: '8px' }}>Supported Networks</h2>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '16px' }}>Production-ready indexing across <strong>226 blockchain networks</strong></p>
+      </div>
+
+      {/* VM Filter Tabs */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '32px',
+        gap: '8px'
+      }}>
+        <div style={{
+          padding: '8px 16px',
+          background: 'var(--primary)',
+          color: 'white',
+          borderRadius: '6px',
+          fontSize: '14px',
+          fontWeight: '500',
+          cursor: 'pointer'
+        }}>
+          EVM (180)
+        </div>
+        <div style={{
+          padding: '8px 16px',
+          background: 'transparent',
+          color: 'var(--text-secondary)',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '6px',
+          fontSize: '14px',
+          cursor: 'pointer'
+        }}>
+          Substrate (25)
+        </div>
+        <div style={{
+          padding: '8px 16px',
+          background: 'transparent',
+          color: 'var(--text-secondary)',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '6px',
+          fontSize: '14px',
+          cursor: 'pointer'
+        }}>
+          Solana (8)
+        </div>
+        <div style={{
+          padding: '8px 16px',
+          background: 'transparent',
+          color: 'var(--text-secondary)',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '6px',
+          fontSize: '14px',
+          cursor: 'pointer'
+        }}>
+          Other (13)
+        </div>
+      </div>
+
+      {/* Networks Grid */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+        gap: '12px',
+        marginBottom: '32px'
+      }}>
+        {/* Ethereum */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #627eea 0%, #8a92b2 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            ETH
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Ethereum</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 1 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* Polygon */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #8247e5 0%, #a855f7 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            MATIC
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Polygon</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Sidechain • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* Arbitrum */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #28a0f0 0%, #4fc3f7 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            ARB
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Arbitrum One</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 2 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* Optimism */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #ff0420 0%, #ff6b6b 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            OP
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Optimism</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 2 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* Base */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #0052ff 0%, #4285f4 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            BASE
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Base</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 2 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* BSC */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #f3ba2f 0%, #ffd700 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            BSC
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>BNB Smart Chain</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 1 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* Avalanche */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #e84142 0%, #ff6b6b 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            AVAX
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Avalanche C-Chain</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 1 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+
+        {/* Fantom */}
+        <div style={{
+          background: 'white',
+          border: '1px solid var(--border-primary)',
+          borderRadius: '8px',
+          padding: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #1969ff 0%, #4fc3f7 100%)',
+            borderRadius: '8px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontWeight: '700',
+            fontSize: '14px',
+            color: 'white'
+          }}>
+            FTM
+          </div>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontWeight: '600', fontSize: '15px', marginBottom: '2px' }}>Fantom Opera</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>Layer 1 • EVM</div>
+          </div>
+          <div style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#10b981'
+          }}></div>
+        </div>
+      </div>
+
+      <div style={{ textAlign: 'center' }}>
+        <a href="/network/overview" style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '12px 24px',
+          background: 'var(--primary)',
+          color: 'white',
+          fontWeight: '600',
+          fontSize: '14px',
+          borderRadius: '8px',
+          textDecoration: 'none'
+        }}>
+          View all 226 networks →
+        </a>
+      </div>
+    </div>
+  );
+};

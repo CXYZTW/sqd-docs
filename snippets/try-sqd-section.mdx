@@ -1,0 +1,206 @@
+export const TrySqdSection = () => {
+  return (
+    <div style={{
+      background: 'var(--background-secondary)',
+      border: '1px solid var(--border-primary)',
+      borderRadius: '16px',
+      padding: '0',
+      marginBottom: '48px',
+      overflow: 'hidden'
+    }}>
+      <div style={{ padding: '32px 32px 24px 32px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: '700', marginBottom: '8px' }}>Try SQD</h2>
+        <p style={{ color: 'var(--text-secondary)', marginBottom: '0' }}>
+          Getting started is simple and fast—make your first API call within minutes.
+        </p>
+      </div>
+      
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '280px 1fr',
+        minHeight: '400px'
+      }}>
+        {/* Sidebar */}
+        <div style={{
+          background: 'var(--background-tertiary)',
+          padding: '24px',
+          borderRight: '1px solid var(--border-primary)'
+        }}>
+          <div style={{ marginBottom: '24px' }}>
+            <h4 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '12px' }}>Get the Latest News</h4>
+          </div>
+          
+          <div style={{ marginBottom: '16px' }}>
+            <div style={{
+              padding: '12px 16px',
+              background: 'rgba(59, 130, 246, 0.1)',
+              border: '1px solid rgba(59, 130, 246, 0.2)',
+              borderRadius: '8px',
+              color: 'var(--primary)',
+              fontWeight: '500',
+              fontSize: '14px'
+            }}>
+              Domain Search
+            </div>
+          </div>
+          
+          <div style={{ marginBottom: '16px' }}>
+            <div style={{
+              padding: '12px 16px',
+              background: 'transparent',
+              border: '1px solid var(--border-primary)',
+              borderRadius: '8px',
+              color: 'var(--text-secondary)',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}>
+              Academic Search
+            </div>
+          </div>
+          
+          <div style={{ marginBottom: '24px' }}>
+            <div style={{
+              padding: '12px 16px',
+              background: 'transparent',
+              border: '1px solid var(--border-primary)',
+              borderRadius: '8px',
+              color: 'var(--text-secondary)',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}>
+              Structured Outputs
+            </div>
+          </div>
+          
+          <a href="/sdk/how-to-start" style={{
+            display: 'block',
+            padding: '12px 16px',
+            background: 'var(--primary)',
+            color: 'white',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            fontWeight: '600',
+            fontSize: '14px',
+            textAlign: 'center'
+          }}>
+            Get started
+          </a>
+        </div>
+        
+        {/* Code Area */}
+        <div style={{
+          background: '#1a1a1a',
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column'
+        }}>
+          {/* Tabs */}
+          <div style={{
+            display: 'flex',
+            borderBottom: '1px solid #333',
+            padding: '0 16px'
+          }}>
+            <div style={{
+              padding: '12px 16px',
+              color: '#60a5fa',
+              borderBottom: '2px solid #60a5fa',
+              fontSize: '14px',
+              fontWeight: '500'
+            }}>
+              curl
+            </div>
+            <div style={{
+              padding: '12px 16px',
+              color: '#888',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}>
+              javascript
+            </div>
+            <div style={{
+              padding: '12px 16px',
+              color: '#888',
+              fontSize: '14px',
+              cursor: 'pointer'
+            }}>
+              python
+            </div>
+          </div>
+          
+          {/* Code Content */}
+          <div style={{
+            flex: 1,
+            padding: '20px',
+            fontFamily: 'Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+            fontSize: '13px',
+            lineHeight: '1.5',
+            color: '#e5e7eb',
+            overflow: 'auto'
+          }}>
+            <div style={{ color: '#f59e0b' }}>curl</div>
+            <span style={{ color: '#10b981' }}> https://api.sqd.dev/v1/query</span>
+            <span style={{ color: '#f59e0b' }}> \</span>
+            <br />
+            <span style={{ color: '#6b7280' }}>  -H </span>
+            <span style={{ color: '#10b981' }}>"Authorization: Bearer YOUR_API_KEY"</span>
+            <span style={{ color: '#f59e0b' }}> \</span>
+            <br />
+            <span style={{ color: '#6b7280' }}>  -H </span>
+            <span style={{ color: '#10b981' }}>"Content-Type: application/json"</span>
+            <span style={{ color: '#f59e0b' }}> \</span>
+            <br />
+            <span style={{ color: '#6b7280' }}>  -d </span>
+            <span style={{ color: '#10b981' }}>'{'</span>
+            <br />
+            <span style={{ color: '#10b981' }}>    "model": "sqd-pro",</span>
+            <br />
+            <span style={{ color: '#10b981' }}>    "query": "SELECT * FROM ethereum_blocks WHERE number > 18000000",</span>
+            <br />
+            <span style={{ color: '#10b981' }}>    "network": "ethereum"</span>
+            <br />
+            <span style={{ color: '#10b981' }}>  }'</span>
+            <br />
+            <br />
+            <div style={{ color: '#6b7280', fontSize: '12px' }}>
+              ••• See all 12 lines
+            </div>
+          </div>
+          
+          {/* Copy button */}
+          <div style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            display: 'flex',
+            gap: '8px'
+          }}>
+            <div style={{
+              width: '24px',
+              height: '24px',
+              background: '#374151',
+              borderRadius: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
+            }}>
+              📋
+            </div>
+            <div style={{
+              width: '24px',
+              height: '24px',
+              background: '#374151',
+              borderRadius: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
+            }}>
+              🔗
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
