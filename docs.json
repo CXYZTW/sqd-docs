@@ -30,7 +30,7 @@
         "tabs": [
           {
             "tab": "Home",
-            "pages": ["en/home-simple"]
+            "pages": ["en/home"]
           },
           {
             "tab": "SDKs",

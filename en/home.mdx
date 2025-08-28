@@ -1,979 +1,151 @@
 ---
-title: "SQD Developer Platform"
-description: "Power your products with unparalleled real-time, blockchain indexing and Q&A capabilities."
+title: "SQD Documentation"
+sidebarTitle: "Home"
+mode: "custom"
+description: "Explore our SDKs, Cloud platform, and decentralized network for blockchain data indexing."
 ---
 
-<HomePage />
-display: flex;
-align-items: center;
-gap: 12px;
-}
-
-.quickstart-description {
-font-size: 14px;
-color: var(--text-secondary);
-margin: 0;
-}
-
-.start-button {
-background: #6b7280;
-color: white;
-border: none;
-padding: 12px 24px;
-border-radius: 8px;
-font-weight: 600;
-font-size: 14px;
-cursor: pointer;
-transition: background 0.2s;
-}
-
-.start-button:hover {
-background: #4b5563;
-}
-
-.demo-section {
-background: #f5f5f0;
-border: 1px solid var(--border-primary);
-border-radius: 12px;
-padding: 32px;
-margin-bottom: 40px;
-}
-
-.demo-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 24px;
-}
-
-.demo-title {
-font-size: 24px;
-font-weight: 700;
-color: var(--text-primary);
-margin: 0;
-}
-
-.demo-content {
-display: grid;
-grid-template-columns: 280px 1fr;
-gap: 24px;
-}
-
-.demo-sidebar {
-background: white;
-border: 1px solid var(--border-primary);
-border-radius: 8px;
-padding: 16px;
-}
-
-.demo-sidebar h3 {
-font-size: 16px;
-font-weight: 600;
-color: var(--text-primary);
-margin: 0 0 16px 0;
-}
-
-.demo-nav {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-.demo-nav li {
-padding: 12px 16px;
-margin: 4px 0;
-border-radius: 6px;
-cursor: pointer;
-font-size: 14px;
-color: var(--text-secondary);
-transition: background 0.2s;
-}
-
-.demo-nav li:hover {
-background: var(--background-secondary);
-}
-
-.demo-nav li.active {
-background: var(--background-secondary);
-color: var(--text-primary);
-font-weight: 500;
-}
-
-.code-demo {
-background: white;
-border: 1px solid var(--border-primary);
-border-radius: 8px;
-overflow: hidden;
-}
-
-.code-tabs {
-display: flex;
-background: var(--background-secondary);
-border-bottom: 1px solid var(--border-primary);
-}
-
-.code-tab {
-padding: 12px 16px;
-font-size: 14px;
-color: var(--text-secondary);
-cursor: pointer;
-border: none;
-background: none;
-transition: all 0.2s;
-}
-
-.code-tab.active {
-color: var(--text-primary);
-background: white;
-border-bottom: 2px solid #3b82f6;
-}
-
-.code-content {
-padding: 24px;
-font-family: 'Monaco', 'Menlo', monospace;
-font-size: 14px;
-line-height: 1.6;
-color: var(--text-primary);
-background: white;
-min-height: 300px;
-}
-
-.get-started-link {
-color: #6b7280;
-text-decoration: underline;
-font-size: 14px;
-margin-top: 16px;
-display: inline-block;
-}
-
-.features-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 24px;
-margin-top: 40px;
-}
-
-.feature-card {
-background: var(--background-secondary);
-border: 1px solid var(--border-primary);
-border-radius: 12px;
-padding: 24px;
-}
-
-.feature-card h3 {
-font-size: 18px;
-font-weight: 600;
-color: var(--text-primary);
-margin: 0 0 12px 0;
-}
-
-.feature-card p {
-font-size: 14px;
-color: var(--text-secondary);
-margin: 0;
-line-height: 1.5;
-}
-
-[data-theme="dark"] .demo-section {
-background: #1f2937;
-}
-
-[data-theme="dark"] .demo-sidebar,
-[data-theme="dark"] .code-demo,
-[data-theme="dark"] .code-content {
-background: #111827;
-}
-
-[data-theme="dark"] .code-tab.active {
-background: #111827;
-}
-
-.browse-section {
-margin-bottom: 40px;
-}
-
-.browse-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 24px;
-}
-
-.browse-title {
-font-size: 24px;
-font-weight: 700;
-color: var(--text-primary);
-margin: 0;
-}
-
-.view-all-link {
-color: #6b7280;
-text-decoration: none;
-font-size: 14px;
-font-weight: 500;
-}
-
-.view-all-link:hover {
-color: var(--text-primary);
-}
-
-.models-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 24px;
-}
-
-.model-card {
-background: white;
-border: 1px solid var(--border-primary);
-border-radius: 12px;
-overflow: hidden;
-transition: all 0.2s ease;
-cursor: pointer;
-}
-
-.model-card:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.model-pattern {
-height: 120px;
-position: relative;
-overflow: hidden;
-}
-
-.sdk-pattern {
-background: linear-gradient(45deg, #f3f4f6 25%, transparent 25%),
-linear-gradient(-45deg, #f3f4f6 25%, transparent 25%),
-linear-gradient(45deg, transparent 75%, #f3f4f6 75%),
-linear-gradient(-45deg, transparent 75%, #f3f4f6 75%);
-background-size: 20px 20px;
-background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-background-color: #e5e7eb;
-}
-
-.cloud-pattern {
-background: linear-gradient(90deg, #3b82f6 0%, #3b82f6 50%, #60a5fa 50%, #60a5fa 100%);
-background-size: 8px 100%;
-}
-
-.network-pattern {
-background: linear-gradient(45deg, #dc2626 25%, transparent 25%),
-linear-gradient(-45deg, #dc2626 25%, transparent 25%),
-linear-gradient(45deg, transparent 75%, #dc2626 75%),
-linear-gradient(-45deg, transparent 75%, #dc2626 75%);
-background-size: 16px 16px;
-background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
-background-color: #ef4444;
-}
-
-.model-content {
-padding: 20px;
-}
-
-.model-content h3 {
-font-size: 18px;
-font-weight: 600;
-color: var(--text-primary);
-margin: 0 0 8px 0;
-}
-
-.model-content p {
-font-size: 14px;
-color: var(--text-secondary);
-margin: 0;
-line-height: 1.5;
-}
-
-[data-theme="dark"] .model-card {
-background: #1f2937;
-}
-
-@media (max-width: 768px) {
-.models-grid {
-grid-template-columns: 1fr;
-}
-}
-
-.networks-section {
-background: var(--background-secondary);
-border: 1px solid var(--border-primary);
-border-radius: 12px;
-padding: 32px;
-margin-bottom: 40px;
-}
-
-.networks-header {
-text-align: center;
-margin-bottom: 32px;
-}
-
-.networks-title {
-font-size: 24px;
-font-weight: 700;
-color: var(--text-primary);
-margin: 0 0 12px 0;
-}
-
-.networks-subtitle {
-font-size: 14px;
-color: var(--text-secondary);
-margin: 0;
-max-width: 420px;
-margin: 0 auto;
-}
-
-.vm-filters {
-display: flex;
-gap: 12px;
-margin-bottom: 24px;
-flex-wrap: wrap;
-justify-content: center;
-}
-
-.vm-filter {
-padding: 10px 20px;
-border-radius: 8px;
-border: 1px solid var(--border-primary);
-background: var(--background-secondary);
-color: var(--text-secondary);
-font-size: 12px;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.vm-filter.active {
-border-color: #3b82f6;
-background: rgba(59, 130, 246, 0.1);
-color: #3b82f6;
-box-shadow: 0 8px 25px -8px rgba(59, 130, 246, 0.3);
-}
-
-.vm-filter:hover {
-transform: translateY(-1px);
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.networks-grid {
-display: grid;
-gap: 16px;
-grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-margin-bottom: 32px;
-}
-
-.network-item {
-background: white;
-border: 1px solid var(--border-primary);
-border-radius: 12px;
-padding: 20px;
-display: flex;
-align-items: center;
-gap: 16px;
-transition: all 0.2s ease;
-cursor: pointer;
-}
-
-.network-item:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.network-icon {
-width: 48px;
-height: 48px;
-background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-border-radius: 12px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 700;
-font-size: 16px;
-color: white;
-box-shadow: 0 4px 12px -4px rgba(59, 130, 246, 0.4);
-}
-
-.network-info {
-flex: 1;
-}
-
-.network-name {
-font-weight: 600;
-font-size: 16px;
-margin-bottom: 4px;
-color: var(--text-primary);
-}
-
-.network-usage {
-color: var(--text-secondary);
-font-size: 14px;
-}
-
-.network-status {
-width: 12px;
-height: 12px;
-border-radius: 50%;
-background: #6b7280;
-}
-
-.network-status.active {
-background: #10b981;
-box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
-}
-
-.view-all-container {
-text-align: center;
-}
-
-.view-all-button {
-display: inline-flex;
-align-items: center;
-gap: 8px;
-padding: 12px 24px;
-background: rgba(59, 130, 246, 0.1);
-border: 2px solid #3b82f6;
-color: #3b82f6;
-font-weight: 600;
-font-size: 14px;
-border-radius: 8px;
-text-decoration: none;
-transition: all 0.2s ease;
-}
-
-.view-all-button:hover {
-transform: translateY(-1px);
-box-shadow: 0 8px 25px -8px rgba(59, 130, 246, 0.3);
-}
-
-[data-theme="dark"] .networks-section {
-background: #1f2937;
-}
-
-[data-theme="dark"] .network-item {
-background: #111827;
-}
-
-@media (max-width: 768px) {
-.networks-grid {
-grid-template-columns: 1fr;
-}
-
-.vm-filters {
-justify-content: flex-start;
-}
-}
-
-@keyframes spin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
-`;
-document.head.appendChild(style);
-}
-}, [isClient]);
-
-const codeExamples = {
-curl: `curl https://api.sqd.dev/v1/query \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "query": "SELECT * FROM ethereum_blocks WHERE number > 18000000",
-    "network": "ethereum"
-  }'`,
-javascript: `import { SqdClient } from '@sqd/sdk';
-
-const client = new SqdClient({
-apiKey: 'YOUR_API_KEY'
-});
-
-const blocks = await client.query({
-network: 'ethereum',
-query: 'SELECT * FROM blocks WHERE number > 18000000'
-});`,
-  python: `import sqd
-
-client = sqd.Client(api_key="YOUR_API_KEY")
-
-blocks = client.query(
-network="ethereum",
-query="SELECT * FROM blocks WHERE number > 18000000"
-)`
-};
-
-return (
-
-  <div className="hero-container">
-    {/* Try SQD Demo */}
-    <div className="demo-section">
-      <div className="demo-header">
-        <h2 className="demo-title">Try SQD</h2>
-      </div>
-
-      <div className="demo-content">
-        {/* Sidebar */}
-        <div className="demo-sidebar">
-          <h3>Get the Latest News</h3>
-          <ul className="demo-nav">
-            <li className="active">Domain Search</li>
-            <li>Academic Search</li>
-            <li>Structured Outputs</li>
-          </ul>
-          <a href="/sdk/how-to-start" className="get-started-link">
+import { Container, Title } from "/snippets/utility.mdx";
+import { ProductTiles } from "/snippets/product-tiles.mdx";
+import { appCategories } from "/snippets/data.mdx";
+import { ProductCard } from "/snippets/product-cards.mdx";
+
+<div className="px-5 divide-y divide-gray-100 dark:divide-white/10">
+  <Container>
+    <div className="w-full flex flex-col">
+      <div className="flex flex-col items-start justify-center w-full max-w-4xl text-left">
+        <div
+          className="text-gray-900 dark:text-gray-200 text-4xl tracking-tight"
+        >
+          SQD Documentation
+        </div>
+        <p
+          className="text-md text-gray-600 dark:text-gray-400 text-left mt-3 mb-4"
+        >
+          Explore our SDKs, Cloud platform, and decentralized network for blockchain data indexing.
+        </p>
+        <div className="flex flex-row gap-4 mt-5">
+        <a href="/get-started/quickstart">
+          <button
+            type="button"
+            className="px-5 flex items-center font-medium text-sm rounded-full py-2 shadow-sm text-white dark:text-gray-900 bg-primary-dark dark:bg-primary-light hover:opacity-[0.9] hover:bg-primary justify-center"
+          >
             Get started
+            <svg
+              className="size-3 ml-2 bg-white dark:bg-gray-900"
+              style={{
+                maskImage: 'url("https://mintlify.b-cdn.net/solid/arrow-right-long.svg")',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center center'
+              }}
+            />
+          </button>
           </a>
         </div>
-
-        {/* Code Demo */}
-        <div className="code-demo">
-          <div className="code-tabs">
-            <button
-              className={`code-tab ${activeTab === 'curl' ? 'active' : ''}`}
-              onClick={() => setActiveTab('curl')}
-            >
-              curl
-            </button>
-            <button
-              className={`code-tab ${activeTab === 'javascript' ? 'active' : ''}`}
-              onClick={() => setActiveTab('javascript')}
-            >
-              javascript
-            </button>
-            <button
-              className={`code-tab ${activeTab === 'python' ? 'active' : ''}`}
-              onClick={() => setActiveTab('python')}
-            >
-              python
-            </button>
-            <div style={{ marginLeft: 'auto', padding: '12px 16px', display: 'flex', gap: '8px' }}>
-              <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>📋</button>
-              <button style={{ background: 'none', border: 'none', cursor: 'pointer' }}>↗️</button>
-            </div>
-          </div>
-
-          <div className="code-content">
-            <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
-              {codeExamples[activeTab]}
-            </pre>
-            <div style={{ marginTop: '16px', fontSize: '12px', color: '#6b7280' }}>
-              ... See all 12 lines
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
-    {/* Browse Models Section */}
-    <div className="browse-section">
-      <div className="browse-header">
-        <h2 className="browse-title">Browse Products</h2>
-        <a href="#" className="view-all-link">View all</a>
+  </Container>
+   <Container>
+    <div className="flex flex-col w-full mb-8">
+      <div className="flex items-center justify-between w-full">
+        <Title>
+          SQD Products {/* Updated */}
+        </Title>
       </div>
-
-      <div className="models-grid">
-        <div className="model-card sdk-card">
-          <div className="model-pattern sdk-pattern"></div>
-          <div className="model-content">
-            <h3>SDK</h3>
-            <p>Lightweight, cost-effective development toolkit with comprehensive blockchain data access.</p>
-          </div>
-        </div>
-
-        <div className="model-card cloud-card">
-          <div className="model-pattern cloud-pattern"></div>
-          <div className="model-content">
-            <h3>Cloud</h3>
-            <p>Fast, real-time managed infrastructure designed for production applications with automatic scaling.</p>
-          </div>
-        </div>
-
-        <div className="model-card network-card">
-          <div className="model-pattern network-pattern"></div>
-          <div className="model-content">
-            <h3>Network</h3>
-            <p>Decentralized research network conducting comprehensive blockchain data analysis and indexing.</p>
-          </div>
-        </div>
-      </div>
+      <p
+        className="text-[#5B616E] dark:text-gray-300 text-md mb-1 mt-3"
+      >
+        Choose the right tool for your blockchain data indexing needs.
+      </p>
     </div>
-
-    {/* Supported Networks Section */}
-    <div className="networks-section">
-      <div className="networks-header">
-        <h2 className="networks-title">Supported Networks</h2>
-        <p className="networks-subtitle">
-          Production-ready indexing across 226 blockchain networks
-        </p>
+    <CardGroup cols={3}>
+        <ProductCard
+        title="TypeScript SDK"
+        description="Build indexers with TypeScript for any blockchain"
+        href="/sdk"
+        icon="https://avatars.githubusercontent.com/u/108554348?s=280&v=4"
+        category="Development"
+        status="Stable"
+        />
+        <ProductCard
+          title="SQD Cloud"
+          description="Deploy and scale your indexers in the cloud"
+          href="/cloud"
+          icon="https://avatars.githubusercontent.com/u/108554348?s=280&v=4"
+          category="Infrastructure"
+          status="Production"
+        />
+          <ProductCard
+          title="Network Overview"
+          description="Learn about the SQD decentralized data network"
+          href="/network"
+          icon="https://avatars.githubusercontent.com/u/108554348?s=280&v=4"
+          category="Network"
+          status="Coming Soon"
+        />
+    </CardGroup>
+    <ul class="not-prose pb-[1px] h-1 min-w-full mt-3 overflow-auto" />
+  </Container>
+  <Container>
+    <div className="flex flex-col w-full mb-8">
+      <div className="flex items-center justify-between w-full">
+        <Title>
+          Supported Networks
+        </Title>
       </div>
-
-      {/* VM Filters */}
-      <div className="vm-filters">
-        <button 
-          className={`vm-filter ${activeVM === 'evm' ? 'active' : ''}`}
-          onClick={() => setActiveVM('evm')}
-        >
-          EVM (130)
-        </button>
-        <button 
-          className={`vm-filter ${activeVM === 'substrate' ? 'active' : ''}`}
-          onClick={() => setActiveVM('substrate')}
-        >
-          Substrate (86)
-        </button>
-        <button 
-          className={`vm-filter ${activeVM === 'solana' ? 'active' : ''}`}
-          onClick={() => setActiveVM('solana')}
-        >
-          Solana (5)
-        </button>
-        <button 
-          className={`vm-filter ${activeVM === 'starknet' ? 'active' : ''}`}
-          onClick={() => setActiveVM('starknet')}
-        >
-          Starknet (2)
-        </button>
-        <button 
-          className={`vm-filter ${activeVM === 'fuel' ? 'active' : ''}`}
-          onClick={() => setActiveVM('fuel')}
-        >
-          Fuel (2)
-        </button>
-        <button 
-          className={`vm-filter ${activeVM === 'tron' ? 'active' : ''}`}
-          onClick={() => setActiveVM('tron')}
-        >
-          Tron (1)
-        </button>
-      </div>
-
-      {/* Networks Grid */}
-      <div className="networks-grid">
-        {activeVM === 'evm' && (
-          <>
-            <div className="network-item">
-              <div className="network-icon">ET</div>
-              <div className="network-info">
-                <div className="network-name">Ethereum</div>
-                <div className="network-usage">2.1TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">PO</div>
-              <div className="network-info">
-                <div className="network-name">Polygon</div>
-                <div className="network-usage">1.8TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">AR</div>
-              <div className="network-info">
-                <div className="network-name">Arbitrum</div>
-                <div className="network-usage">1.2TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">OP</div>
-              <div className="network-info">
-                <div className="network-name">Optimism</div>
-                <div className="network-usage">0.9TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">BN</div>
-              <div className="network-info">
-                <div className="network-name">BNB Chain</div>
-                <div className="network-usage">1.5TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">AV</div>
-              <div className="network-info">
-                <div className="network-name">Avalanche</div>
-                <div className="network-usage">0.7TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">BA</div>
-              <div className="network-info">
-                <div className="network-name">Base</div>
-                <div className="network-usage">0.6TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">FT</div>
-              <div className="network-info">
-                <div className="network-name">Fantom</div>
-                <div className="network-usage">0.4TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">CR</div>
-              <div className="network-info">
-                <div className="network-name">Cronos</div>
-                <div className="network-usage">0.3TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">GN</div>
-              <div className="network-info">
-                <div className="network-name">Gnosis</div>
-                <div className="network-usage">0.2TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-          </>
-        )}
-        
-        {activeVM === 'substrate' && (
-          <>
-            <div className="network-item">
-              <div className="network-icon">PD</div>
-              <div className="network-info">
-                <div className="network-name">Polkadot</div>
-                <div className="network-usage">0.5TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">KU</div>
-              <div className="network-info">
-                <div className="network-name">Kusama</div>
-                <div className="network-usage">0.3TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">AC</div>
-              <div className="network-info">
-                <div className="network-name">Acala</div>
-                <div className="network-usage">0.2TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">MB</div>
-              <div className="network-info">
-                <div className="network-name">Moonbeam</div>
-                <div className="network-usage">0.25TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">MR</div>
-              <div className="network-info">
-                <div className="network-name">Moonriver</div>
-                <div className="network-usage">0.18TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">AS</div>
-              <div className="network-info">
-                <div className="network-name">Astar</div>
-                <div className="network-usage">0.15TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">SH</div>
-              <div className="network-info">
-                <div className="network-name">Shiden</div>
-                <div className="network-usage">0.12TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">KA</div>
-              <div className="network-info">
-                <div className="network-name">Karura</div>
-                <div className="network-usage">0.10TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">BI</div>
-              <div className="network-info">
-                <div className="network-name">Bifrost</div>
-                <div className="network-usage">0.08TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">PH</div>
-              <div className="network-info">
-                <div className="network-name">Phala</div>
-                <div className="network-usage">0.06TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-          </>
-        )}
-        
-        {activeVM === 'solana' && (
-          <>
-            <div className="network-item">
-              <div className="network-icon">SO</div>
-              <div className="network-info">
-                <div className="network-name">Solana</div>
-                <div className="network-usage">0.8TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">DE</div>
-              <div className="network-info">
-                <div className="network-name">Devnet</div>
-                <div className="network-usage">0.2TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">TE</div>
-              <div className="network-info">
-                <div className="network-name">Testnet</div>
-                <div className="network-usage">0.1TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-          </>
-        )}
-        
-        {activeVM === 'fuel' && (
-          <>
-            <div className="network-item">
-              <div className="network-icon">FU</div>
-              <div className="network-info">
-                <div className="network-name">Fuel</div>
-                <div className="network-usage">0.1TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">FT</div>
-              <div className="network-info">
-                <div className="network-name">Fuel Testnet</div>
-                <div className="network-usage">0.05TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-          </>
-        )}
-        
-        {activeVM === 'tron' && (
-          <>
-            <div className="network-item">
-              <div className="network-icon">TR</div>
-              <div className="network-info">
-                <div className="network-name">Tron</div>
-                <div className="network-usage">0.4TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">SH</div>
-              <div className="network-info">
-                <div className="network-name">Shasta Testnet</div>
-                <div className="network-usage">0.1TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">NI</div>
-              <div className="network-info">
-                <div className="network-name">Nile Testnet</div>
-                <div className="network-usage">0.08TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-          </>
-        )}
-        
-        {activeVM === 'starknet' && (
-          <>
-            <div className="network-item">
-              <div className="network-icon">ST</div>
-              <div className="network-info">
-                <div className="network-name">Starknet</div>
-                <div className="network-usage">0.2TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">SE</div>
-              <div className="network-info">
-                <div className="network-name">Sepolia Testnet</div>
-                <div className="network-usage">0.05TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-            <div className="network-item">
-              <div className="network-icon">GO</div>
-              <div className="network-info">
-                <div className="network-name">Goerli Testnet</div>
-                <div className="network-usage">0.03TB indexed</div>
-              </div>
-              <div className="network-status active"></div>
-            </div>
-          </>
-        )}
-      </div>
-
-      {/* View All Button */}
-      <div className="view-all-container">
-        <a href="/network/overview" className="view-all-button">
-          View all networks
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-            <path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.44 8.5H2.75a.75.75 0 0 1 0-1.5h8.69L8.22 4.03a.75.75 0 0 1 0-1.06Z"/>
-          </svg>
-        </a>
-      </div>
+      <p
+        className="text-[#5B616E] dark:text-gray-300 text-md mb-1 mt-3"
+      >
+        Explore the 250+ blockchain networks supported by SQD.
+      </p>
     </div>
+    <ProductTiles categories={appCategories} />
+    <ul class="not-prose pb-[1px] h-1 min-w-full mt-3 overflow-auto" />
+  </Container>
 
-    {/* Features Grid */}
-    <div className="features-grid">
-      <div className="feature-card">
-        <h3>🚀 High Performance</h3>
-        <p>
-          Process millions of blockchain events with sub-100ms query latency.
-          Built for enterprise-scale applications.
-        </p>
-      </div>
-
-      <div className="feature-card">
-        <h3>🔧 Developer Experience</h3>
-        <p>
-          Hot reloading, TypeScript support, and instant feedback loops.
-          Ship faster with confidence.
-        </p>
-      </div>
-
-      <div className="feature-card">
-        <h3>🌐 Multi-Chain Support</h3>
-        <p>
-          Index data from 200+ blockchain networks including Ethereum,
-          Polygon, Arbitrum, and more.
-        </p>
-      </div>
-
-      <div className="feature-card">
-        <h3>🛡️ Enterprise Ready</h3>
-        <p>
-          99.9% uptime SLA, automatic scaling, monitoring, and alerting.
-          Built for mission-critical applications.
-        </p>
-      </div>
-    </div>
+  <Container>
+    <div className="flex flex-col w-full mb-5">
+    <Title>
+      Resources
+    </Title>
 
   </div>
-);
-
-}
+  <Columns cols={3}>
+    <Card
+      title="Documentation"
+      icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" fill="#D69900"/>
+      </svg>}
+      href="/sdk"
+    >
+    Complete guides and API references for building with SQD
+    </Card>
+    <Card
+      title="Join our Community"
+      icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_4125_5937)">
+        <path d="M20.3302 4.26678C18.7563 3.53035 17.0912 3.00708 15.3789 2.71082C15.1656 3.09641 14.9165 3.61503 14.7446 4.02763C12.8985 3.75003 11.0693 3.75003 9.25715 4.02763C9.0854 3.61513 8.83059 3.09641 8.61534 2.71082C6.90139 3.00722 5.23486 3.53182 3.66018 4.27063C0.526681 9.00585 -0.322788 13.6233 0.1019 18.1754C2.18024 19.7275 4.19437 20.6703 6.17456 21.2873C6.66668 20.6105 7.10171 19.894 7.47515 19.1452C6.76417 18.8745 6.07877 18.5409 5.42709 18.1484C5.59858 18.0213 5.76604 17.8889 5.92921 17.7512C9.87815 19.5983 14.1689 19.5983 18.0708 17.7512C18.2347 17.8879 18.4021 18.0204 18.5728 18.1484C17.9201 18.542 17.2334 18.8762 16.521 19.1472C16.8966 19.899 17.3308 20.6162 17.8216 21.2892C19.8036 20.6723 21.8196 19.7294 23.898 18.1754C24.3964 12.8984 23.0467 8.32335 20.3302 4.26678ZM8.01318 15.376C6.82771 15.376 5.85553 14.2693 5.85553 12.9216C5.85553 11.5739 6.80699 10.4653 8.01318 10.4653C9.21946 10.4653 10.1916 11.572 10.1708 12.9216C10.1727 14.2693 9.21946 15.376 8.01318 15.376ZM15.9867 15.376C14.8012 15.376 13.8291 14.2693 13.8291 12.9216C13.8291 11.5739 14.7805 10.4653 15.9867 10.4653C17.193 10.4653 18.1651 11.572 18.1444 12.9216C18.1444 14.2693 17.193 15.376 15.9867 15.376Z" fill="#D69900"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_4125_5937">
+        <rect width="24" height="24" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>}
+      href="https://discord.gg/sqd"
+    >
+    Get help with your indexing projects and meet fellow developers
+    </Card>
+    <Card
+      title="GitHub Repository"
+      icon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.63 18.545 7.851 18.421 8.153C19.191 8.993 19.656 10.064 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z" fill="#D69900"/>
+        </svg>}
+      href="https://github.com/sqd-labs"
+    >
+    Explore our open-source codebase and contribute to the project
+    </Card>
+  </Columns>
+  </Container>
+</div>
