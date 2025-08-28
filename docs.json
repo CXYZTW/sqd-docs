@@ -28,34 +28,59 @@
       {
         "language": "en",
         "tabs": [
+
           {
-            "tab": "Home",
-            "pages": ["en/home"]
-          },
-          {
-            "tab": "SDKs",
-            "groups": [
+            "tab": "Build",
+            "icon": "code",
+            "menu": [
               {
-                "group": "Getting Started",
-                "pages": [
-                  "en/sdk/overview/sdk-overview",
-                  "en/sdk/quickstart/sdk-quickstart",
-                  "en/sdk/how-to-start/getting-started"
+                "item": "Get Started",
+                "icon": "rocket",
+                "description": "Quick start guides and platform overview",
+                "groups": [
+                  {
+                    "group": "Quick Start",
+                    "pages": [
+                      "en/sdk/quickstart/sdk-quickstart",
+                      "en/sdk/how-to-start/getting-started"
+                    ]
+                  },
+                  {
+                    "group": "Platform Options",
+                    "pages": [
+                      "en/sdk/overview/sdk-overview",
+                      "en/cloud/overview/deployment-workflow", 
+                      "en/network/overview/network-overview"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "EVM",
-                "pages": [
-                  "en/sdk/tutorials/evm-tutorials",
-                  "en/sdk/examples/evm-examples",
-                  "en/sdk/reference/evm-reference",
-                  "en/sdk/troubleshooting/sdk-troubleshooting",
-                  "en/sdk/faq/sdk-faq",
-                  "en/sdk/subsquid-vs-thegraph/subsquid-vs-thegraph"
+                "item": "EVM Chains",
+                "icon": "ethereum",
+                "description": "Index Ethereum, Polygon, Arbitrum and more",
+                "groups": [
+                  {
+                    "group": "Tutorials & Examples",
+                    "pages": [
+                      "en/sdk/tutorials/evm-tutorials",
+                      "en/sdk/examples/evm-examples"
+                    ]
+                  },
+                  {
+                    "group": "Reference",
+                    "pages": [
+                      "en/sdk/reference/evm-reference",
+                      "en/sdk/troubleshooting/sdk-troubleshooting",
+                      "en/sdk/faq/sdk-faq"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Solana",
+                "item": "Solana",
+                "icon": "solana",
+                "description": "Index Solana programs and transactions",
                 "pages": [
                   "en/sdk/solana-indexing/how-to-start/solana-getting-started",
                   "en/sdk/solana-indexing/sdk/solana-sdk",
@@ -63,27 +88,32 @@
                 ]
               },
               {
-                "group": "Fuel",
-                "pages": [
-                  "en/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts",
-                  "en/sdk/fuel-indexing/network-api/fuel-network-api"
+                "item": "Other Chains",
+                "icon": "network-wired",
+                "description": "Fuel, Tron, and more blockchain networks",
+                "groups": [
+                  {
+                    "group": "Fuel",
+                    "pages": [
+                      "en/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts",
+                      "en/sdk/fuel-indexing/network-api/fuel-network-api"
+                    ]
+                  },
+                  {
+                    "group": "Tron",
+                    "pages": [
+                      "en/sdk/tron-indexing/indexing-tron-data/tron-indexing-data"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Tron",
+                "item": "Migration & Tools",
+                "icon": "arrow-right-arrow-left",
+                "description": "Migrate from other platforms and CLI tools",
                 "pages": [
-                  "en/sdk/tron-indexing/indexing-tron-data/tron-indexing-data"
-                ]
-              },
-              {
-                "group": "Subgraphs Support",
-                "pages": [
-                  "en/sdk/subgraphs-support/subgraphs-support"
-                ]
-              },
-              {
-                "group": "CLI Reference",
-                "pages": [
+                  "en/sdk/subsquid-vs-thegraph/subsquid-vs-thegraph",
+                  "en/sdk/subgraphs-support/subgraphs-support",
                   "en/squid-cli/installation/squid-cli-installation",
                   "en/squid-cli/explorer/squid-cli-explorer"
                 ]
@@ -91,80 +121,117 @@
             ]
           },
           {
-            "tab": "Cloud",
-            "groups": [
+            "tab": "Deploy",
+            "icon": "cloud",
+            "menu": [
               {
-                "group": "Overview",
-                "pages": [
-                  "en/cloud/overview/deployment-workflow"
+                "item": "SQD Cloud",
+                "icon": "cloud",
+                "description": "Managed infrastructure for production applications",
+                "groups": [
+                  {
+                    "group": "Deployment",
+                    "pages": [
+                      "en/cloud/overview/deployment-workflow"
+                    ]
+                  },
+                  {
+                    "group": "Pricing & Plans",
+                    "pages": [
+                      "en/cloud/pricing/cloud-pricing"
+                    ]
+                  },
+                  {
+                    "group": "Cloud Reference",
+                    "pages": [
+                      "en/cloud/reference/cloud-reference"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Pricing",
-                "pages": [
-                  "en/cloud/pricing/cloud-pricing"
-                ]
-              },
-              {
-                "group": "Reference",
-                "pages": [
-                  "en/cloud/reference/cloud-reference"
+                "item": "Decentralized Network",
+                "icon": "network-wired",
+                "groups": [
+                  {
+                    "group": "Overview",
+                    "pages": [
+                      "en/network/overview/network-overview"
+                    ]
+                  },
+                  {
+                    "group": "Participation",
+                    "pages": [
+                      "en/network/participate/network-participate"
+                    ]
+                  },
+                  {
+                    "group": "FAQ",
+                    "pages": [
+                      "en/network/faq/network-faq"
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            "tab": "Network",
+            "tab": "Participate",
+            "icon": "network-wired",
             "groups": [
               {
-                "group": "Overview",
+                "group": "Network Participation",
                 "pages": [
-                  "en/network/overview/network-overview"
-                ]
-              },
-              {
-                "group": "Participation",
-                "pages": [
-                  "en/network/participate/network-participate"
-                ]
-              },
-              {
-                "group": "FAQ",
-                "pages": [
+                  "en/network/participate/network-participate",
                   "en/network/faq/network-faq"
                 ]
               }
             ]
           },
           {
-            "tab": "Data catalog",
-            "groups": [
+            "tab": "Data Catalog",
+            "icon": "database",
+            "menu": [
               {
-                "group": "Overview",
+                "item": "EVM Networks",
+                "icon": "ethereum",
                 "pages": [
+                  "en/supported-networks"
+                ]
+              },
+              {
+                "item": "Substrate Networks",
+                "icon": "polkadot",
+       "pages": [
+                  "en/supported-networks"
+                ]
+              },
+              {
+                "item": "Solana (SVM)",
+                "icon": "solana",
+              "pages": [
+                  "en/supported-networks"
+                ]
+              },
+              {
+                "item": "Other Networks",
+                "icon": "network-wired",
+     "pages": [
                   "en/supported-networks"
                 ]
               }
             ]
           },
           {
-            "tab": "Resources",
+            "tab": "Community & Help",
+            "icon": "users",
             "groups": [
               {
-                "group": "Documentation",
+                "group": "Resources",
                 "pages": [
                   "en/other/glossary/glossary",
                   "en/other/conduit-integration/conduit-integration"
                 ]
-              }
-            ]
-          },
-          {
-            "tab": "Support",
-            "groups": [
-              {
-                "group": "Help",
-                "pages": []
               }
             ]
           }
@@ -460,13 +527,18 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Supported Chains",
-          "href": "https://status.sequence.info/",
+          "anchor": "Portal API",
+          "href": "https://status.sqd.dev/",
+          "icon": "api"
+        },
+        {
+          "anchor": "Status",
+          "href": "https://status.sqd.dev/",
           "icon": "heart-pulse"
         },
         {
           "anchor": "Changelog",
-          "href": "https://0xsequence.featurebase.app/changelog",
+          "href": "https://sqd.dev/changelog",
           "icon": "map"
         }
       ]
