@@ -621,7 +621,7 @@ apiKey: 'YOUR_API_KEY'
 
 const blocks = await client.query({
 network: 'ethereum',
-query: 'SELECT \* FROM blocks WHERE number > 18000000'
+query: 'SELECT * FROM blocks WHERE number > 18000000'
 });`,
   python: `import sqd
 
@@ -629,7 +629,7 @@ client = sqd.Client(api_key="YOUR_API_KEY")
 
 blocks = client.query(
 network="ethereum",
-query="SELECT \* FROM blocks WHERE number > 18000000"
+query="SELECT * FROM blocks WHERE number > 18000000"
 )`
 };
 
