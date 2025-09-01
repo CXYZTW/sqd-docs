@@ -1,0 +1,245 @@
+---
+title: "Fuel Development"
+description: "Build Fuel indexers with Squid SDK"
+---
+
+# Fuel Development
+
+Index Fuel blockchain data including transactions, receipts, and smart contract interactions on the Fuel network.
+
+## Getting Started
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install @subsquid/fuel-processor @subsquid/typeorm-store
+    ```
+  </Step>
+  
+  <Step title="Configure Processor">
+    ```typescript
+    import { FuelBatchProcessor } from '@subsquid/fuel-processor'
+    
+    const processor = new FuelBatchProcessor()
+      .setGateway('https://v2.archive.subsquid.io/network/fuel-mainnet')
+      .setRpcEndpoint('https://mainnet.fuel.network/v1/graphql')
+    ```
+  </Step>
+  
+  <Step title="Add Data Sources">
+    Configure what data to index from the Fuel blockchain
+  </Step>
+</Steps>
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="UTXO Model" icon="coins">
+    Handle Fuel's UTXO-based transaction model
+  </Card>
+  <Card title="Sway Contracts" icon="code">
+    Index Sway smart contract interactions
+  </Card>
+  <Card title="Receipts" icon="receipt">
+    Process transaction receipts and logs
+  </Card>
+  <Card title="Predicates" icon="function">
+    Monitor predicate executions and validations
+  </Card>
+</CardGroup>
+
+## Basic Processor Setup
+
+```typescript
+import { FuelBatchProcessor } from '@subsquid/fuel-processor'
+import { TypeormDatabase } from '@subsquid/typeorm-store'
+
+const processor = new FuelBatchProcessor()
+  .setGateway('https://v2.archive.subsquid.io/network/fuel-mainnet')
+  .setRpcEndpoint('https://mainnet.fuel.network/v1/graphql')
+  .addReceipt({
+    type: ['TRANSFER', 'LOG_DATA', 'CALL']
+  })
+  .setFields({
+    receipt: {
+      receiptType: true,
+      data: true,
+      amount: true,
+      assetId: true
+    },
+    transaction: {
+      id: true,
+      gasUsed: true,
+      status: true
+    },
+    block: {
+      height: true,
+      timestamp: true
+    }
+  })
+
+const db = new TypeormDatabase()
+
+processor.run(db, async (ctx) => {
+  for (let block of ctx.blocks) {
+    for (let receipt of block.receipts) {
+      // Process Fuel receipts
+      console.log(`Receipt type: ${receipt.receiptType}`)
+    }
+  }
+})
+```
+
+## Receipt Types
+
+Fuel uses receipts to represent various operations:
+
+### Transfer Receipts
+```typescript
+processor.addReceipt({
+  type: ['TRANSFER'],
+  assetId: ['0x...'] // Specific asset ID
+})
+```
+
+### Log Data Receipts
+```typescript
+processor.addReceipt({
+  type: ['LOG_DATA'],
+  contractId: ['0x...'] // Specific contract
+})
+```
+
+### Call Receipts
+```typescript
+processor.addReceipt({
+  type: ['CALL'],
+  contractId: ['0x...']
+})
+```
+
+## Data Structures
+
+### Receipt Structure
+```typescript
+interface Receipt {
+  receiptType: 'TRANSFER' | 'LOG_DATA' | 'CALL' | 'RETURN' | 'REVERT'
+  data?: string
+  amount?: bigint
+  assetId?: string
+  contractId?: string
+  to?: string
+  from?: string
+}
+```
+
+### Transaction Structure
+```typescript
+interface Transaction {
+  id: string
+  gasUsed: bigint
+  gasPrice: bigint
+  status: 'SUCCESS' | 'FAILURE'
+  receipts: Receipt[]
+}
+```
+
+## Common Use Cases
+
+### Asset Transfers
+```typescript
+// Index native asset transfers
+processor.addReceipt({
+  type: ['TRANSFER'],
+  assetId: ['0x0000000000000000000000000000000000000000000000000000000000000000'] // ETH
+})
+```
+
+### Contract Interactions
+```typescript
+// Monitor specific contract calls
+processor.addReceipt({
+  type: ['CALL', 'LOG_DATA'],
+  contractId: ['0x...']
+})
+```
+
+### Token Operations
+```typescript
+// Track custom token transfers
+processor.addReceipt({
+  type: ['TRANSFER'],
+  assetId: ['0x...'] // Custom token asset ID
+})
+```
+
+## Performance Optimization
+
+<CardGroup cols={2}>
+  <Card title="Receipt Filtering" icon="filter">
+    Filter by specific receipt types and contracts
+  </Card>
+  <Card title="Asset Targeting" icon="target">
+    Focus on specific assets or contracts
+  </Card>
+  <Card title="Batch Processing" icon="layer-group">
+    Process receipts in optimized batches
+  </Card>
+  <Card title="Efficient Storage" icon="database">
+    Optimize data models for Fuel's UTXO structure
+  </Card>
+</CardGroup>
+
+## Network Information
+
+### Mainnet
+- **Gateway**: `https://v2.archive.subsquid.io/network/fuel-mainnet`
+- **RPC**: `https://mainnet.fuel.network/v1/graphql`
+- **Block Time**: ~1 second
+- **Finality**: Near-instant
+
+### Testnet
+- **Gateway**: `https://v2.archive.subsquid.io/network/fuel-testnet`
+- **RPC**: `https://testnet.fuel.network/v1/graphql`
+
+## Fuel-Specific Considerations
+
+### UTXO Model
+- Transactions consume inputs and produce outputs
+- No account-based state like Ethereum
+- Each transaction is atomic
+
+### Asset Management
+- Native multi-asset support
+- Each asset has a unique asset ID
+- ETH is represented as asset ID `0x00...00`
+
+### Gas Model
+- Gas is paid in the base asset (ETH)
+- Predictable gas costs
+- No gas price auctions
+
+## Examples
+
+<CardGroup cols={2}>
+  <Card title="Asset Transfers" href="https://github.com/subsquid-labs/fuel-asset-transfers">
+    Index multi-asset transfers on Fuel
+  </Card>
+  <Card title="Contract Events" href="https://github.com/subsquid-labs/fuel-contract-events">
+    Monitor Sway contract interactions
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+- Understand Fuel's UTXO model for proper data modeling
+- Use receipt filtering to reduce data processing overhead
+- Handle different receipt types appropriately
+- Monitor gas usage patterns for optimization
+- Implement proper error handling for failed transactions
+
+## Next Steps
+
+- Explore [Fuel Network API](/en/sdk/fuel/network-api)
+- Learn about [Sway programming language](https://docs.fuel.network/docs/sway/)
+- Check [Fuel examples](https://github.com/subsquid-labs/fuel-examples)

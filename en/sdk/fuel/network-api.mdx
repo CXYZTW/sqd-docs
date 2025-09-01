@@ -1,0 +1,186 @@
+---
+title: "Fuel Network API"
+description: "Access Fuel blockchain data through SQD Network API"
+---
+
+# Fuel Network API
+
+The SQD Network provides optimized access to Fuel blockchain data through high-performance gateways, enabling fast synchronization and efficient indexing.
+
+## Gateway Endpoints
+
+### Mainnet
+```typescript
+processor.setGateway('https://v2.archive.subsquid.io/network/fuel-mainnet')
+```
+
+### Testnet
+```typescript
+processor.setGateway('https://v2.archive.subsquid.io/network/fuel-testnet')
+```
+
+## Data Coverage
+
+The SQD Network for Fuel provides:
+- **Complete transaction history** from genesis
+- **All receipt data** including transfers, calls, and logs
+- **UTXO state changes** and asset movements
+- **Contract interactions** and Sway program executions
+- **Real-time updates** with minimal latency
+
+## Performance Benefits
+
+<CardGroup cols={2}>
+  <Card title="Fast Sync" icon="bolt">
+    Significantly faster than GraphQL-only indexing
+  </Card>
+  <Card title="Pre-filtered Data" icon="filter">
+    Only receive data matching your filters
+  </Card>
+  <Card title="Optimized Batches" icon="layer-group">
+    Efficient batch sizes for maximum throughput
+  </Card>
+  <Card title="High Availability" icon="shield-check">
+    Reliable access with automatic failover
+  </Card>
+</CardGroup>
+
+## Data Filtering
+
+### Receipt-based Filtering
+```typescript
+processor.addReceipt({
+  type: ['TRANSFER', 'LOG_DATA'],
+  contractId: ['0x...'],
+  assetId: ['0x...']
+})
+```
+
+### Transaction Filtering
+```typescript
+processor.addTransaction({
+  status: ['SUCCESS'],
+  gasUsed: { min: 1000, max: 50000 }
+})
+```
+
+### Block Range Filtering
+```typescript
+processor.setBlockRange({
+  from: 1000000,
+  to: 2000000
+})
+```
+
+## Hybrid Data Sources
+
+Combine SQD Network with GraphQL for optimal performance:
+
+```typescript
+const processor = new FuelBatchProcessor()
+  // Fast historical sync via SQD Network
+  .setGateway('https://v2.archive.subsquid.io/network/fuel-mainnet')
+  // Real-time data via GraphQL
+  .setRpcEndpoint('https://mainnet.fuel.network/v1/graphql')
+  .setFinalityConfirmation(1) // Near-instant finality on Fuel
+```
+
+## Rate Limits and Quotas
+
+### Free Tier
+- 100 requests per second
+- 1M data points per month
+- Community support
+
+### Pro Tier
+- 1000 requests per second
+- Unlimited data points
+- Priority support
+- Custom rate limits available
+
+## Error Handling
+
+```typescript
+processor.run(db, async (ctx) => {
+  try {
+    // Process data
+  } catch (error) {
+    if (error.code === 'RATE_LIMIT_EXCEEDED') {
+      // Handle rate limiting
+      await new Promise(resolve => setTimeout(resolve, 1000))
+    } else if (error.code === 'GATEWAY_TIMEOUT') {
+      // Handle gateway issues
+      ctx.log.warn('Gateway timeout, retrying...')
+    }
+    throw error
+  }
+})
+```
+
+## Monitoring and Observability
+
+### Built-in Metrics
+- Processing speed (blocks/second)
+- Data throughput (receipts/second)
+- Error rates and types
+- Gateway response times
+
+### Custom Logging
+```typescript
+processor.run(db, async (ctx) => {
+  ctx.log.info(`Processing block ${ctx.blocks[0]?.height}`)
+  
+  for (let block of ctx.blocks) {
+    ctx.log.debug(`Block ${block.height}: ${block.receipts.length} receipts`)
+  }
+})
+```
+
+## Best Practices
+
+### **Optimize Filters**
+- Use specific contract IDs when possible
+- Filter by asset IDs for targeted indexing
+- Set appropriate block ranges for historical data
+
+### **Handle UTXO Model**
+- Understand Fuel's UTXO-based architecture
+- Process inputs and outputs correctly
+- Handle asset transfers appropriately
+
+### **Monitor Performance**
+- Track processing speed and latency
+- Set up alerts for error rates
+- Monitor gateway health status
+
+## Migration from GraphQL
+
+Migrating from direct GraphQL to SQD Network:
+
+<Steps>
+  <Step title="Update Gateway Configuration">
+    Replace GraphQL-only configuration with SQD Network gateway
+  </Step>
+  <Step title="Adjust Data Selection">
+    Use SQD Network's filtering capabilities
+  </Step>
+  <Step title="Optimize Batch Processing">
+    Take advantage of optimized batch sizes
+  </Step>
+  <Step title="Monitor Performance">
+    Measure the performance improvement
+  </Step>
+</Steps>
+
+## Support
+
+Need help with Fuel Network API?
+
+<CardGroup cols={2}>
+  <Card title="Documentation" href="/en/sdk/fuel/fuel-datasource">
+    Complete Fuel SDK reference
+  </Card>
+  <Card title="Examples" href="https://github.com/subsquid-labs/fuel-examples">
+    Production-ready examples
+  </Card>
+</CardGroup>

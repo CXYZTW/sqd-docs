@@ -14,7 +14,7 @@
     "dark": "#111111"
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity", "cursor", "vscode"]
+    "options": ["copy", "view", "chatgpt", "mcp", "perplexity", "cursor", "vscode"]
   },
   "fonts": {
     "body": {
@@ -29,59 +29,96 @@
       {
         "language": "en",
         "tabs": [
-
           {
             "tab": "Build",
             "icon": "code",
             "groups": [
               {
-                "group": "Quick Start",
+                "group": "SDK",
                 "pages": [
-                  "en/sdk/quickstart/sdk-quickstart",
-                  "en/sdk/how-to-start/getting-started"
+                  "en/sdk/getting-started/quickstart",
+                  "en/sdk/getting-started/overview",
+                  {
+                    "group": "EVM",
+                    "pages": [
+                      "en/sdk/evm/tutorials",
+                      "en/sdk/evm/examples",
+                      "en/sdk/evm/reference"
+                    ]
+                  },
+                  {
+                    "group": "Substrate",
+                    "pages": [
+                      "en/sdk/substrate/tutorials/substrate",
+                      "en/sdk/substrate/tutorials/ink",
+                      "en/sdk/substrate/tutorials/frontier-evm",
+                      "en/sdk/substrate/reference/substrate-batch"
+                    ]
+                  },
+                  {
+                    "group": "Solana",
+                    "pages": [
+                      "en/sdk/solana/how-to-start",
+                      "en/sdk/solana/sdk",
+                      "en/sdk/solana/network-api"
+                    ]
+                  },
+                  {
+                    "group": "Fuel",
+                    "pages": [
+                      "en/sdk/fuel/fuel-datasource",
+                      "en/sdk/fuel/indexing-receipts",
+                      "en/sdk/fuel/network-api"
+                    ]
+                  },
+                  {
+                    "group": "Tron",
+                    "pages": [
+                      "en/sdk/tron/quickstart"
+                    ]
+                  },
+                  {
+                    "group": "Advanced",
+                    "pages": [
+                      "en/sdk/getting-started/development-environment-set-up",
+                      "en/sdk/getting-started/squid-development",
+                      "en/sdk/getting-started/squid-from-scratch",
+                      "en/sdk/features/batch-processing",
+                      "en/sdk/features/multichain",
+                      "en/sdk/features/external-api",
+                      "en/sdk/features/serving-graphql",
+                      "en/sdk/features/unfinalized-blocks"
+                    ]
+                  },
+                  {
+                    "group": "Tools",
+                    "pages": [
+                      "en/sdk/tools/cli",
+                      "en/sdk/tools/external-tools"
+                    ]
+                  },
+                  {
+                    "group": "Migration",
+                    "pages": [
+                      "en/sdk/migration/migrate-to-arrowsquid",
+                      "en/sdk/migration/migrate-from-thegraph"
+                    ]
+                  },
+                  {
+                    "group": "Troubleshooting",
+                    "pages": [
+                      "en/sdk/tools/troubleshooting"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Platform Options",
+                "group": "Pipes SDK",
+                "icon": "/icons/beta-square.svg",
                 "pages": [
-                  "en/sdk/overview/sdk-overview",
-                  "en/cloud/overview/deployment-workflow", 
-                  "en/network/overview/network-overview"
-                ]
-              },
-              {
-                "group": "EVM Development",
-                "pages": [
-                  "en/sdk/tutorials/evm-tutorials",
-                  "en/sdk/examples/evm-examples",
-                  "en/sdk/reference/evm-reference",
-                  "en/sdk/troubleshooting/sdk-troubleshooting",
-                  "en/sdk/faq/sdk-faq"
-                ]
-              },
-              {
-                "group": "Solana Development",
-                "pages": [
-                  "en/sdk/solana-indexing/how-to-start/solana-getting-started",
-                  "en/sdk/solana-indexing/sdk/solana-sdk",
-                  "en/sdk/solana-indexing/network-api/solana-network-api"
-                ]
-              },
-              {
-                "group": "Other Chains",
-                "pages": [
-                  "en/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts",
-                  "en/sdk/fuel-indexing/network-api/fuel-network-api",
-                  "en/sdk/tron-indexing/indexing-tron-data/tron-indexing-data"
-                ]
-              },
-              {
-                "group": "Migration & Tools",
-                "pages": [
-                  "en/sdk/subsquid-vs-thegraph/subsquid-vs-thegraph",
-                  "en/sdk/subgraphs-support/subgraphs-support",
-                  "en/squid-cli/installation/squid-cli-installation",
-                  "en/squid-cli/explorer/squid-cli-explorer"
+                  "en/sdk/pipes/overview",
+                  "en/sdk/pipes/quickstart",
+                  "en/sdk/pipes/overview"
                 ]
               }
             ]
@@ -93,17 +130,43 @@
               {
                 "group": "SQD Cloud",
                 "pages": [
-                  "en/cloud/overview/deployment-workflow",
-                  "en/cloud/pricing/cloud-pricing",
-                  "en/cloud/reference/cloud-reference"
+                  "en/cloud/overview",
+                  "en/cloud/pricing",
+                  "en/cloud/troubleshooting"
                 ]
               },
               {
-                "group": "Decentralized Network",
+                "group": "Resources",
                 "pages": [
-                  "en/network/overview/network-overview",
-                  "en/network/participate/network-participate",
-                  "en/network/faq/network-faq"
+                  "en/cloud/resources/best-practices",
+                  "en/cloud/resources/env-variables",
+                  "en/cloud/resources/logging",
+                  "en/cloud/resources/monitoring",
+                  "en/cloud/resources/organizations",
+                  "en/cloud/resources/slots-and-tags",
+                  "en/cloud/resources/query-optimization",
+                  "en/cloud/resources/rpc-proxy",
+                  "en/cloud/resources/migrate-to-portal-on-evm-or-substrate",
+                  "en/cloud/resources/migrate-to-portal-on-solana",
+                  "en/cloud/resources/production-alias"
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": [
+                  "en/cloud/reference/manifest",
+                  "en/cloud/reference/scale",
+                  "en/cloud/reference/pg",
+                  "en/cloud/reference/hasura",
+                  "en/cloud/reference/rpc-proxy-networks",
+                  "en/cloud/reference/squidignore",
+                  "en/cloud/reference/deployments-two-changelog"
+                ]
+              },
+              {
+                "group": "Self-Hosting",
+                "pages": [
+                  "en/network/self-hosting"
                 ]
               }
             ]
@@ -113,10 +176,31 @@
             "icon": "network-wired",
             "groups": [
               {
-                "group": "Network Participation",
+                "group": "SQD Network",
                 "pages": [
-                  "en/network/participate/network-participate",
-                  "en/network/faq/network-faq"
+                  "en/network/overview",
+                  "en/network/whitepaper",
+                  "en/network/faq",
+                  "en/network/tokenomics"
+                ]
+              },
+              {
+                "group": "Participate",
+                "pages": [
+                  "en/network/participate/portal",
+                  "en/network/participate/procuring-sqd",
+                  "en/network/participate/delegate",
+                  "en/network/participate/worker",
+                  "en/network/participate/gateway"
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": [
+                  "en/network/reference/networks",
+                  "en/network/reference/evm-api",
+                  "en/network/reference/substrate-api",
+                  "en/network/reference/starknet-api"
                 ]
               }
             ]
@@ -134,23 +218,11 @@
             ]
           },
           {
-            "tab": "Portal API Reference",
-            "icon": "code",
-            "groups": [
-              {
-                "group": "API Reference",
-                "pages": [
-                  "en/other/glossary/glossary"
-                ]
-              }
-            ]
-          },
-          {
             "tab": "Resources",
-            "icon": "users",
+            "icon": "book",
             "groups": [
               {
-                "group": "Resources",
+                "group": "Documentation",
                 "pages": [
                   "en/other/glossary/glossary",
                   "en/other/conduit-integration/conduit-integration"

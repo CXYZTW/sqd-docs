@@ -1,0 +1,179 @@
+---
+title: "Tron Development"
+description: "Build Tron indexers with Squid SDK"
+---
+
+# Tron Development
+
+Index Tron blockchain data including transactions, smart contract events, and TRC-20/TRC-721 token transfers.
+
+## Getting Started
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+    npm install @subsquid/tron-processor @subsquid/typeorm-store
+    ```
+  </Step>
+  
+  <Step title="Configure Processor">
+    ```typescript
+    import { TronBatchProcessor } from '@subsquid/tron-processor'
+    
+    const processor = new TronBatchProcessor()
+      .setGateway('https://v2.archive.subsquid.io/network/tron-mainnet')
+      .setRpcEndpoint('https://api.trongrid.io')
+    ```
+  </Step>
+  
+  <Step title="Add Data Sources">
+    Configure what data to index from the Tron blockchain
+  </Step>
+</Steps>
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="TRC-20 Tokens" icon="coins">
+    Index TRC-20 token transfers and balances
+  </Card>
+  <Card title="Smart Contracts" icon="code">
+    Monitor smart contract interactions and events
+  </Card>
+  <Card title="TRX Transfers" icon="arrow-right-arrow-left">
+    Track native TRX transfers and transactions
+  </Card>
+  <Card title="Resource Model" icon="battery-full">
+    Handle Tron's unique energy and bandwidth system
+  </Card>
+</CardGroup>
+
+## Basic Processor Setup
+
+```typescript
+import { TronBatchProcessor } from '@subsquid/tron-processor'
+import { TypeormDatabase } from '@subsquid/typeorm-store'
+
+const processor = new TronBatchProcessor()
+  .setGateway('https://v2.archive.subsquid.io/network/tron-mainnet')
+  .setRpcEndpoint('https://api.trongrid.io')
+  .addTransaction({
+    type: ['TransferContract', 'TriggerSmartContract']
+  })
+  .setFields({
+    transaction: {
+      hash: true,
+      fee: true,
+      energyUsage: true,
+      netUsage: true
+    },
+    block: {
+      timestamp: true,
+      number: true
+    }
+  })
+
+const db = new TypeormDatabase()
+
+processor.run(db, async (ctx) => {
+  for (let block of ctx.blocks) {
+    for (let transaction of block.transactions) {
+      // Process Tron transactions
+      console.log(`TX: ${transaction.hash}`)
+    }
+  }
+})
+```
+
+## Common Use Cases
+
+### TRC-20 Token Indexing
+```typescript
+processor.addLog({
+  address: ['TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t'], // USDT on Tron
+  topic0: ['0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'] // Transfer event
+})
+```
+
+### Smart Contract Events
+```typescript
+processor.addLog({
+  address: ['contract-address'],
+  topic0: ['event-signature']
+})
+```
+
+### Native TRX Transfers
+```typescript
+processor.addTransaction({
+  type: ['TransferContract']
+})
+```
+
+## Data Types
+
+### Transaction Types
+- `TransferContract` - Native TRX transfers
+- `TriggerSmartContract` - Smart contract calls
+- `TransferAssetContract` - TRC-10 token transfers
+- `CreateSmartContract` - Contract deployments
+
+### Resource Management
+Tron uses energy and bandwidth for transaction execution:
+- **Energy**: Used for smart contract execution
+- **Bandwidth**: Used for transaction data storage
+- **Frozen TRX**: Provides energy and bandwidth
+
+## Performance Optimization
+
+<CardGroup cols={2}>
+  <Card title="Selective Filtering" icon="filter">
+    Filter by specific contract addresses and event types
+  </Card>
+  <Card title="Batch Processing" icon="layer-group">
+    Process multiple transactions in batches
+  </Card>
+  <Card title="Resource Monitoring" icon="chart-line">
+    Monitor energy and bandwidth usage patterns
+  </Card>
+  <Card title="Efficient Queries" icon="database">
+    Optimize database queries for Tron data structures
+  </Card>
+</CardGroup>
+
+## Examples
+
+<CardGroup cols={2}>
+  <Card title="USDT Transfers" href="https://github.com/subsquid-labs/tron-usdt-transfers">
+    Index USDT transfers on Tron network
+  </Card>
+  <Card title="DeFi Protocol" href="https://github.com/subsquid-labs/tron-defi-indexer">
+    Monitor JustSwap and SunSwap activity
+  </Card>
+</CardGroup>
+
+## Network Information
+
+### Mainnet
+- **Gateway**: `https://v2.archive.subsquid.io/network/tron-mainnet`
+- **RPC**: `https://api.trongrid.io`
+- **Block Time**: ~3 seconds
+- **Finality**: 19 confirmations
+
+### Testnet (Shasta)
+- **Gateway**: `https://v2.archive.subsquid.io/network/tron-shasta`
+- **RPC**: `https://api.shasta.trongrid.io`
+
+## Best Practices
+
+- Handle Tron's unique address format (base58)
+- Monitor energy consumption for contract interactions
+- Implement proper error handling for failed transactions
+- Use appropriate block confirmation depths
+- Consider Tron's resource freezing mechanism
+
+## Next Steps
+
+- Explore [Tron examples](https://github.com/subsquid-labs/tron-examples)
+- Learn about [Tron's resource model](https://developers.tron.network/docs/resource-model)
+- Check [TronGrid API documentation](https://developers.tron.network/reference/trongrid-api)

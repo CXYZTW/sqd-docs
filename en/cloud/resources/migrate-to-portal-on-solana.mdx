@@ -1,0 +1,222 @@
+---
+title: "Portal for Solana"
+description: "Solana data from the permissionless SQD Network"
+---
+
+
+# Migrate to the Cloud portal
+
+## For users on Solana
+
+<Info>
+SQD Network portals are currently in beta. Please report any bugs or suggestions to the [SQD Portal Beta chat](https://t.me/+JHrJZPz34kRjYmFk) or to [Squid Devs](https://t.me/HydraDevs).
+</Info>
+
+The newest version of SQD Network portal serves real time data. It can replace both gateways of the open private version of SQD Network and RPC endpoints. Currently it only supports Solana ([more on Solana indexing in SQD](/solana-indexing)).
+
+<Info>
+We're currently experimenting with tightening the data request complexity limits. If you see an HTTP 400 error with a message like this:
+```
+Couldn't parse query: query contains X item requests, but only 50 is allowed
+```
+where `X` is some number above 50, or any other HTTP 400 response, please let us know.
+</Info>
+
+Here are the steps to migrate:
+
+## Step 0: Procur a portal endpoint URL
+
+You want
+```
+https://portal.sqd.dev/datasets/solana-beta
+```
+Dedicated Cloud Solana portal with real time support is TBA.
+
+## Step 1: Install @portal-api packages
+
+**A.** Enter your squid's folder.
+
+**B.** Remove both your lock file and the `node_modules` folder:
+
+```mdx-code-block
+<Tabs queryString="package-manager">
+<TabItem value="npm" label="NPM">
+```
+```bash
+rm -r node_modules package-lock.json
+```
+```mdx-code-block
+</TabItem>
+<TabItem value="yarn" label="Yarn">
+```
+```bash
+rm -r node_modules yarn.lock
+```
+```mdx-code-block
+</TabItem>
+<TabItem value="pnpm" label="PNPM">
+```
+```bash
+rm -r node_modules pnpm-lock.yaml
+```
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+**C.** Upgrade all SQD packages that have a `@portal-api` version to it:
+```bash
+npx --yes npm-check-updates --filter "@subsquid/*" --target "@portal-api" --upgrade
+```
+
+**D.** Freeze the versions of `@portal-api` packages by removing any version range specifiers (`^`, `~`, `<`, `>`, `>=`, `<=`) preceding the package versions. Here's a script:
+```bash
+sed -i -e 's/[\^~=<>]*\([0-9\.]*-portal-api\.[0-9a-f]\{6\}\)/\1/g' package.json
+```
+
+<details>
+<summary>You can also do it manually</summary>
+
+Here's an example edit:
+```diff
+   "dependencies": {
+-    "@subsquid/batch-processor": "^1.0.0-portal-api.18ef40",
++    "@subsquid/batch-processor": "1.0.0-portal-api.18ef40",
+     "@subsquid/borsh": "^0.2.0",
+-    "@subsquid/solana-objects": ">=0.0.3-portal-api.18ef40",
+-    "@subsquid/solana-stream": "<1.0.0-portal-api.18ef40",
++    "@subsquid/solana-objects": "0.0.3-portal-api.18ef40",
++    "@subsquid/solana-stream": "1.0.0-portal-api.18ef40",
+     "@subsquid/typeorm-migration": "^1.3.0",
+-    "@subsquid/typeorm-store": "~1.6.0-portal-api.18ef40",
++    "@subsquid/typeorm-store": "1.6.0-portal-api.18ef40",
+     "dotenv": "^16.4.7",
+     "pg": "^8.13.1",
+     "typeorm": "^0.3.20"
+   },
+   "devDependencies": {
+-    "@subsquid/solana-typegen": "^0.4.1-portal-api.18ef40",
++    "@subsquid/solana-typegen": "0.4.1-portal-api.18ef40",
+     "@types/node": "^22.13.1",
+     "typescript": "~5.7.3"
+   }
+```
+
+</details>
+
+**E.** Install the dependencies:
+
+```mdx-code-block
+<Tabs queryString="package-manager">
+<TabItem value="npm" label="NPM">
+```
+```bash
+npm install
+```
+```mdx-code-block
+</TabItem>
+<TabItem value="yarn" label="Yarn">
+```
+```bash
+yarn install
+```
+```mdx-code-block
+</TabItem>
+<TabItem value="pnpm" label="PNPM">
+```
+```bash
+pnpm install
+```
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+## Step 2: Update your code
+
+**A.** Replace all exising data sources with the portal:
+
+```diff
++  .setPortal('https://portal.tethys.sqd.dev/datasets/solana-beta')
+-  .setGateway('https://v2.archive.subsquid.io/network/solana-mainnet')
+-  .setRpc({
+-    client: new SolanaRpcClient({
+-      url: process.env.SOLANA_NODE
+-    })
+-  })
+```
+Also, please remove any mentions of `SolanaRpcClient`, for example:
+```diff
+-import {DataSourceBuilder, SolanaRpcClient} from '@subsquid/solana-stream'
++import {DataSourceBuilder} from '@subsquid/solana-stream'
+```
+
+**B.** Replace any block height literals with **slot number** literals.
+
+```diff
++  .setBlockRange({from: 325000000})
+-  .setBlockRange({from: 303262650})
+```
+TBA add a convenient converter
+
+**C.** If you used the `slot` field of block headers anywhere in your code, replace it with `.number`:
+
+```diff
+-  slot: block.header.slot,
++  slot: block.header.number,
+```
+
+**D.** If you need the block height (for example to stay compatible with your old code) request it in the `.setFields` call:
+
+```diff
+   .setFields({
+     block: { // block header fields
+       timestamp: true,
++      height: true
+     },
+```
+
+Your squid is ready to use.
+
+## Step 3: testing
+
+We highly recommend that all Portal Beta users test their migrated squids by re-syncing them. This will allow you to make sure that everything works as expected for the whole length of the chain and catch any bugs early.
+
+<details>
+<summary>A workaround that allows continuous operation without a resync (not recommended)</summary>
+
+Assuming your squid is version-controlled and has one processor:
+
+1. Commit your updated squid code.
+
+2. Stop your Cloud squid deployment.
+
+   1. Reset your repo to the state before the updates.
+
+   2. Add the `to` field to the argument of the [`.setBlockRange`](/solana-indexing/sdk/solana-batch/general/#set-block-range) `DataSourceBuilder` call (likely in `./src/main.ts`). Set it to the current slot number.
+
+   3. [Update your deployment](/squid-cli/deploy)
+
+   4. Take a look at your squid's logs. It should be repeatedly terminating (due to having nothing to do) and restarting.
+
+3. Connect to the squid's database and update the `height` field of the [status schema](/sdk/faq/#how-do-squids-keep-track-of-their-sync-progress) to contain **slot** instead of the block height of the block mentioned there.
+
+4. Verify that the `height` field updated successfully by re-reading the status schema.
+
+5. Reset your codebase to its updated version and redeploy your squid again.
+
+</details>
+
+To resync your squid, follow the zero-downtime update procedure:
+
+1. Deploy your squid into a new slot.
+
+2. Wait for it to sync, observing the improved data fetching.
+
+3. Assign your production tag to the new deployment to redirect the GraphQL requests there.
+
+See [this section](/cloud/resources/slots-and-tags/#zero-downtime-updates) for details.
+
+## What's next?
+
+Take a look at the [Soldexer project](https://soldexer.ai) for a peek at the new client architecture and the most detailed and up-to-date documentation on the updated Portal API.

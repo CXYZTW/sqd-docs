@@ -1,0 +1,96 @@
+---
+title: "EVM Reference"
+description: "Complete API reference for EVM development with Squid SDK"
+---
+
+# EVM Reference
+
+Complete API reference documentation for building EVM indexers with Squid SDK.
+
+## Core Components
+
+<CardGroup cols={2}>
+  <Card title="EvmBatchProcessor" href="/en/sdk/reference/processors/evm-batch">
+    Main processor class for EVM chains
+  </Card>
+  <Card title="TypeORM Store" href="/en/sdk/reference/store/typeorm">
+    Database persistence layer
+  </Card>
+</CardGroup>
+
+## Data Sources
+
+<CardGroup cols={2}>
+  <Card title="SQD Network" href="/en/sdk/reference/datasources/sqd-network">
+    High-performance blockchain data gateway
+  </Card>
+  <Card title="RPC Endpoints" href="/en/sdk/reference/datasources/rpc">
+    Direct blockchain RPC integration
+  </Card>
+</CardGroup>
+
+## Code Generation
+
+<CardGroup cols={2}>
+  <Card title="EVM Typegen" href="/en/sdk/reference/typegen/evm">
+    Generate TypeScript code from ABIs
+  </Card>
+  <Card title="TypeORM Codegen" href="/en/sdk/reference/codegen/typeorm">
+    Generate database models from GraphQL schema
+  </Card>
+</CardGroup>
+
+## API Reference
+
+### EvmBatchProcessor Methods
+
+- `setGateway(url)` - Configure SQD Network gateway
+- `setRpcEndpoint(url)` - Set RPC endpoint for real-time data
+- `setFinalityConfirmation(blocks)` - Configure finality depth
+- `addLog(options)` - Subscribe to event logs
+- `addTransaction(options)` - Subscribe to transactions
+- `addTrace(options)` - Subscribe to transaction traces
+- `setFields(fields)` - Select data fields to retrieve
+
+### Data Types
+
+- **Block**: Blockchain block data structure
+- **Log**: Event log with decoded data
+- **Transaction**: Transaction data and metadata
+- **Trace**: Internal transaction traces
+
+## Configuration Options
+
+### Processor Configuration
+```typescript
+const processor = new EvmBatchProcessor()
+  .setGateway('https://v2.archive.subsquid.io/network/ethereum-mainnet')
+  .setRpcEndpoint('https://rpc.ankr.com/eth')
+  .setFinalityConfirmation(75)
+```
+
+### Data Selection
+```typescript
+processor
+  .addLog({
+    address: ['0x...'],
+    topic0: ['0x...'],
+    range: { from: 1000000 }
+  })
+  .setFields({
+    log: {
+      transactionHash: true,
+      block: {
+        timestamp: true
+      }
+    }
+  })
+```
+
+## Best Practices
+
+- Use SQD Network gateways for optimal performance
+- Configure appropriate finality confirmation
+- Select only required data fields
+- Implement proper error handling
+- Use batch processing for efficiency
