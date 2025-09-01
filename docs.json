@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "aspen",
   "name": "SQD Docs",
   "logo": {
     "light": "/logos/light.png",
@@ -14,7 +14,7 @@
     "dark": "#111111"
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "mcp", "perplexity", "cursor", "vscode"]
+    "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity", "cursor", "vscode"]
   },
   "fonts": {
     "body": {
