@@ -517,6 +517,33 @@
             ]
           }
         ]
+      },
+      {
+        "language": "de",
+        "tabs": [
+          {
+            "tab": "Startseite",
+            "pages": ["de/home"]
+          }
+        ]
+      },
+      {
+        "language": "tr",
+        "tabs": [
+          {
+            "tab": "Ana Sayfa",
+            "pages": ["tr/home"]
+          }
+        ]
+      },
+      {
+        "language": "fr",
+        "tabs": [
+          {
+            "tab": "Accueil",
+            "pages": ["fr/home"]
+          }
+        ]
       }
     ],
     "global": {
