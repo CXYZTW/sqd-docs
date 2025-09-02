@@ -34,91 +34,102 @@
             "icon": "code",
             "groups": [
               {
-                "group": "SDK",
+                "group": "Getting Started",
                 "pages": [
                   "en/sdk/getting-started/quickstart",
                   "en/sdk/getting-started/overview",
-                  {
-                    "group": "EVM",
-                    "pages": [
-                      "en/sdk/evm/tutorials",
-                      "en/sdk/evm/examples",
-                      "en/sdk/evm/reference"
-                    ]
-                  },
-                  {
-                    "group": "Substrate",
-                    "pages": [
-                      "en/sdk/substrate/tutorials/substrate",
-                      "en/sdk/substrate/tutorials/ink",
-                      "en/sdk/substrate/tutorials/frontier-evm",
-                      "en/sdk/substrate/reference/substrate-batch"
-                    ]
-                  },
-                  {
-                    "group": "Solana",
-                    "pages": [
-                      "en/sdk/solana/how-to-start",
-                      "en/sdk/solana/sdk",
-                      "en/sdk/solana/network-api"
-                    ]
-                  },
-                  {
-                    "group": "Fuel",
-                    "pages": [
-                      "en/sdk/fuel/fuel-datasource",
-                      "en/sdk/fuel/indexing-receipts",
-                      "en/sdk/fuel/network-api"
-                    ]
-                  },
-                  {
-                    "group": "Tron",
-                    "pages": [
-                      "en/sdk/tron/quickstart"
-                    ]
-                  },
-                  {
-                    "group": "Advanced",
-                    "pages": [
-                      "en/sdk/getting-started/development-environment-set-up",
-                      "en/sdk/getting-started/squid-development",
-                      "en/sdk/getting-started/squid-from-scratch",
-                      "en/sdk/features/batch-processing",
-                      "en/sdk/features/multichain",
-                      "en/sdk/features/external-api",
-                      "en/sdk/features/serving-graphql",
-                      "en/sdk/features/unfinalized-blocks"
-                    ]
-                  },
-                  {
-                    "group": "Tools",
-                    "pages": [
-                      "en/sdk/tools/cli",
-                      "en/sdk/tools/external-tools"
-                    ]
-                  },
-                  {
-                    "group": "Migration",
-                    "pages": [
-                      "en/sdk/migration/migrate-to-arrowsquid",
-                      "en/sdk/migration/migrate-from-thegraph"
-                    ]
-                  },
-                  {
-                    "group": "Troubleshooting",
-                    "pages": [
-                      "en/sdk/tools/troubleshooting"
-                    ]
-                  }
+                  "en/sdk/getting-started/layout"
+                ]
+              },
+              {
+                "group": "EVM",
+                "pages": [
+                  "en/sdk/evm/tutorials",
+                  "en/sdk/evm/examples",
+                  "en/sdk/evm/reference"
+                ]
+              },
+              {
+                "group": "Solana",
+                "pages": [
+                  "en/sdk/solana/how-to-start",
+                  "en/sdk/solana/sdk",
+                  "en/sdk/solana/network-api"
+                ]
+              },
+              {
+                "group": "Substrate",
+                "pages": [
+                  "en/sdk/substrate/tutorials/substrate",
+                  "en/sdk/substrate/tutorials/ink",
+                  "en/sdk/substrate/tutorials/frontier-evm",
+                  "en/sdk/substrate/reference/substrate-batch"
+                ]
+              },
+              {
+                "group": "Fuel",
+                "pages": [
+                  "en/sdk/fuel/fuel-datasource",
+                  "en/sdk/fuel/indexing-receipts",
+                  "en/sdk/fuel/network-api"
+                ]
+              },
+              {
+                "group": "Tron",
+                "pages": [
+                  "en/sdk/tron/quickstart"
+                ]
+              },
+              {
+                "group": "Starknet",
+                "pages": [
+                  "en/sdk/starknet/quickstart"
                 ]
               },
               {
                 "group": "Pipes SDK",
-                "icon": "/icons/beta-square.svg",
+                "icon": "/pipes-sdk.svg",
                 "pages": [
                   "en/sdk/pipes/overview",
-                  "en/sdk/pipes/quickstart",
-                  "en/sdk/pipes/overview"
+                  "en/sdk/pipes/quickstart"
+                ]
+              },
+              {
+                "group": "Advanced Features",
+                "pages": [
+                  "en/sdk/features/batch-processing",
+                  "en/sdk/features/multichain",
+                  "en/sdk/features/external-api",
+                  "en/sdk/features/serving-graphql",
+                  "en/sdk/features/unfinalized-blocks"
+                ]
+              },
+              {
+                "group": "Setup & Development",
+                "pages": [
+                  "en/sdk/getting-started/development-environment-set-up",
+                  "en/sdk/getting-started/squid-development",
+                  "en/sdk/getting-started/squid-from-scratch"
+                ]
+              },
+              {
+                "group": "Tools",
+                "pages": [
+                  "en/sdk/tools/cli",
+                  "en/sdk/tools/external-tools"
+                ]
+              },
+              {
+                "group": "Migration",
+                "pages": [
+                  "en/sdk/migration/migrate-to-arrowsquid",
+                  "en/sdk/migration/migrate-from-thegraph"
+                ]
+              },
+              {
+                "group": "Troubleshooting",
+                "pages": [
+                  "en/sdk/tools/troubleshooting"
                 ]
               }
             ]
@@ -193,15 +204,6 @@
                   "en/network/participate/worker",
                   "en/network/participate/gateway"
                 ]
-              },
-              {
-                "group": "Reference",
-                "pages": [
-                  "en/network/reference/networks",
-                  "en/network/reference/evm-api",
-                  "en/network/reference/substrate-api",
-                  "en/network/reference/starknet-api"
-                ]
               }
             ]
           },
@@ -213,6 +215,15 @@
                 "group": "Supported Networks",
                 "pages": [
                   "en/supported-networks"
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": [
+                  "en/supported-networks/networks",
+                  "en/supported-networks/reference/evm-api",
+                  "en/supported-networks/reference/substrate-api",
+                  "en/supported-networks/reference/starknet-api"
                 ]
               }
             ]
@@ -569,7 +580,10 @@
     "links": [{
       "label": "sqd.ai",
       "href": "https://github.com/subsquid/squid-sdk"
-  }]
+    }, {
+      "label": "For LLMs",
+      "href": "https://sqd-2119b3c3.mintlify.app/llms-full.txt"
+    }]
   },
   "redirects": [
     {
