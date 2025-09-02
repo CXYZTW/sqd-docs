@@ -8,6 +8,10 @@
     "href": "https://sqd-2119b3c3.mintlify.app/en/home"
   },
   "favicon": "/logos/dark.png",
+  "banner": {
+    "content": "Try our new Pipes SDK",
+    "dismissible": true
+  },
   "colors": {
     "primary": "#111111",
     "light": "#B1A9FF",
