@@ -28,6 +28,7 @@
     "languages": [
       {
         "language": "en",
+
         "tabs": [
           {
             "tab": "Build",
@@ -224,6 +225,25 @@
                   "en/supported-networks/reference/evm-api",
                   "en/supported-networks/reference/substrate-api",
                   "en/supported-networks/reference/starknet-api"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "icon": "code",
+            "groups": [
+              {
+                "group": "Network APIs",
+                "pages": [
+                  "en/api-reference/coming-soon"
+                ]
+              },
+              {
+                "group": "SDK Reference",
+                "pages": [
+"en/api-reference/coming-soon"
+                  
                 ]
               }
             ]
