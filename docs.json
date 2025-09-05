@@ -254,16 +254,16 @@
               {
                 "group": " ",
                 "pages": [
-                  "en/supported-networks"
+                  "en/data"
                 ]
               },
               {
                 "group": "Reference",
                 "pages": [
-                  "en/supported-networks/networks",
-                  "en/supported-networks/reference/evm-api",
-                  "en/supported-networks/reference/substrate-api",
-                  "en/supported-networks/reference/starknet-api"
+                  "en/data/networks",
+                  "en/data/reference/evm-api",
+                  "en/data/reference/substrate-api",
+                  "en/data/reference/starknet-api"
                 ]
               }
             ]
@@ -279,6 +279,7 @@
               },
               {
                 "dropdown": "Solana",
+                "icon": "coins",
                 "openapi": "en/api-reference/solana/openapi.yaml"
               }
             ]
