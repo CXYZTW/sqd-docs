@@ -1,0 +1,77 @@
+---
+title: "EVM API Overview"
+description: "Access Ethereum and EVM-compatible blockchain data through the SQD Network Portal"
+---
+
+# EVM API Reference
+
+The EVM API provides access to Ethereum and EVM-compatible blockchain data through the SQD Network Portal. This API is optimized for querying transactions, logs, traces, and state changes across all supported EVM networks.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Real-time Streaming" icon="stream">
+    Get live blockchain data as blocks are produced
+  </Card>
+  <Card title="Historical Access" icon="clock">
+    Query complete blockchain history from genesis
+  </Card>
+  <Card title="Flexible Filtering" icon="filter">
+    Target specific contracts, addresses, or transaction types
+  </Card>
+  <Card title="State Diffs" icon="git-branch">
+    Track storage changes and account modifications
+  </Card>
+</CardGroup>
+
+## Supported Networks
+
+The EVM API supports 100+ networks including:
+
+- **Ethereum Mainnet & Testnets** (Sepolia, Holesky)
+- **Layer 2s** (Arbitrum, Optimism, Base, Polygon)
+- **Alternative EVMs** (Avalanche, BSC, Fantom)
+- **Emerging Networks** (Blast, Scroll, zkSync Era)
+
+See the complete list in [Supported Networks](/en/supported-networks).
+
+## Data Types
+
+### Blocks
+Block headers with metadata like timestamp, gas usage, and miner information.
+
+### Transactions  
+Complete transaction data including inputs, outputs, gas usage, and execution status.
+
+### Logs
+Event logs emitted by smart contracts with topics and data.
+
+### Traces
+Detailed execution traces showing internal calls, contract creation, and value transfers.
+
+### State Diffs
+Storage slot changes and account balance modifications.
+
+## Quick Start
+
+```bash
+# Get latest block metadata
+curl https://portal.sqd.dev/datasets/ethereum-mainnet/metadata
+
+# Stream recent blocks
+curl -X POST https://portal.sqd.dev/datasets/ethereum-mainnet/stream \
+  -H "Content-Type: application/json" \
+  -d '{"fromBlock": 19000000, "toBlock": 19000002}'
+```
+
+## Rate Limits
+
+<Warning>
+  All endpoints are rate limited at **50 requests per 10 seconds per IP**. Higher bandwidth will be available via the public network.
+</Warning>
+
+## Next Steps
+
+- Browse the [complete API specification](/en/api-reference/evm/openapi) for detailed endpoint documentation
+- See [EVM SDK examples](/en/sdk/evm/examples) for practical implementations
+- Join our [developer community](https://t.me/hydradevs) for support

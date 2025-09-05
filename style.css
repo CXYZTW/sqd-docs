@@ -1,14 +1,7 @@
-/* === Sidebar group styling (Mintlify) === */
-/* Support both your old class names and Mintlify's */
-.nav-group,
-.sidebar-group {
-  margin-bottom: 24px;
-}
-
 /* Group headers */
 .nav-group-title,
 .sidebar-group-header {
-  font-size: 11px !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.06em !important;
@@ -18,39 +11,6 @@
   padding: 8px 12px 4px 12px !important;
   background: none !important;
   border: none !important;
-}
-
-/* Navigation items */
-.nav-anchor,
-.sidebar-group .nav-anchor {
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin: 2px 0;
-  transition: background-color 0.15s ease;
-}
-
-.nav-anchor:hover,
-.sidebar-group .nav-anchor:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-/* Selected */
-.nav-anchor[aria-current="true"],
-.sidebar-group .nav-anchor[aria-current="true"] {
-  background: rgba(0, 0, 0, 0.06);
-  font-weight: 500;
-}
-
-/* Subtle dividers between major sections (3rd & 5th group) */
-.nav-group:nth-of-type(3)::before,
-.nav-group:nth-of-type(5)::before,
-.sidebar-group:nth-child(3)::before,
-.sidebar-group:nth-child(5)::before {
-  content: "";
-  display: block;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.08);
-  margin: 16px 12px 20px 12px;
 }
 
 /* Dark mode */
@@ -73,30 +33,4 @@
   .sidebar-group:nth-child(5)::before {
     background: rgba(255, 255, 255, 0.12);
   }
-}
-
-/* Add a custom icon before the "Pipes SDK" group title using an SVG mask */
-.nav-group:has(a[href*="sdk/pipes"]) .nav-group-title::before,
-.sidebar-group:has(a[href*="sdk/pipes"]) .sidebar-group-header::before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin-right: 6px;
-  background: currentColor; /* auto light/dark */
-  -webkit-mask: url("data:image/svg+xml;utf8,\
-<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox='0 0 24 24' fill='none'>\
-<path d='M3 8h9a2 2 0 0 1 2 2v0a2 2 0 0 0 2 2h5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>\
-<circle cx='12' cy='8' r='1.5' fill='black'/>\
-<circle cx='21' cy='12' r='1.5' fill='black'/>\
-</svg>")
-    no-repeat center / 100% 100%;
-  mask: url("data:image/svg+xml;utf8,\
-<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox='0 0 24 24' fill='none'>\
-<path d='M3 8h9a2 2 0 0 1 2 2v0a2 2 0 0 0 2 2h5' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>\
-<circle cx='12' cy='8' r='1.5' fill='black'/>\
-<circle cx='21' cy='12' r='1.5' fill='black'/>\
-</svg>")
-    no-repeat center / 100% 100%;
-  vertical-align: -2px;
 }

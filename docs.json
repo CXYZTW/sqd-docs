@@ -7,7 +7,7 @@
     "dark": "/logos/dark.png",
     "href": "https://sqd-2119b3c3.mintlify.app/en/home"
   },
-  "favicon": "/logos/dark.png",
+  "favicon": "/logos/favicon.svg",
   "banner": {
     "content": "Try our new Pipes SDK",
     "dismissible": true
@@ -18,7 +18,20 @@
     "dark": "#111111"
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude", "mcp", "perplexity", "cursor", "vscode"]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "cursor", {
+      "title": "Share on X",
+      "description": "Share this page on X",
+      "icon": "x",
+      "href": {
+        "base": "https://x.com/intent/tweet",
+        "query": [
+          {
+            "key": "text",
+            "value": "Check out this documentation: $page"
+          }
+        ]
+      }
+    }]
   },
   "fonts": {
     "body": {
@@ -32,109 +45,131 @@
     "languages": [
       {
         "language": "en",
-
         "tabs": [
+          {
+            "tab": "Home",
+            "icon": "house",
+            "pages": ["en/home"]
+          },
           {
             "tab": "Build",
             "icon": "code",
-            "groups": [
+            "dropdowns": [
               {
-                "group": "Getting Started",
-                "pages": [
-                  "en/sdk/getting-started/quickstart",
-                  "en/sdk/getting-started/overview",
-                  "en/sdk/getting-started/layout"
+                "dropdown": "EVM",
+                "icon":"ethereum",
+                "groups": [
+                  {
+                    "group": "Getting Started",
+                    "pages": [
+                      "en/sdk/getting-started/quickstart",
+                      "en/sdk/getting-started/overview",
+                      "en/sdk/getting-started/layout"
+                    ]
+                  },
+                  {
+                    "group": "EVM Development",
+                    "pages": [
+                      "en/sdk/evm/quickstart",
+                      "en/sdk/evm/tutorials",
+                      "en/sdk/evm/examples",
+                      "en/sdk/evm/reference"
+                    ]
+                  },
+                  {
+                    "group": "Advanced Features",
+                    "pages": [
+                      "en/sdk/features/batch-processing",
+                      "en/sdk/features/multichain",
+                      "en/sdk/features/external-api",
+                      "en/sdk/features/serving-graphql",
+                      "en/sdk/features/unfinalized-blocks"
+                    ]
+                  },
+                  {
+                    "group": "Setup & Tools",
+                    "pages": [
+                      "en/sdk/getting-started/development-environment-set-up",
+                      "en/sdk/getting-started/squid-development",
+                      "en/sdk/getting-started/squid-from-scratch",
+                      "en/sdk/tools/cli",
+                      "en/sdk/tools/external-tools"
+                    ]
+                  },
+                  {
+                    "group": "Migration & Help",
+                    "pages": [
+                      "en/sdk/migration/migrate-to-arrowsquid",
+                      "en/sdk/migration/migrate-from-thegraph",
+                      "en/sdk/tools/troubleshooting"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "EVM",
-                "pages": [
-                  "en/sdk/evm/tutorials",
-                  "en/sdk/evm/examples",
-                  "en/sdk/evm/reference"
+                "dropdown": "Solana",
+                "groups": [
+                  {
+                    "group": "Getting Started",
+                    "pages": [
+                      "en/sdk/solana/quickstart",
+                      "en/sdk/solana/how-to-start"
+                    ]
+                  },
+                  {
+                    "group": "Development",
+                    "pages": [
+                      "en/sdk/solana/sdk",
+                      "en/sdk/solana/network-api"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Solana",
-                "pages": [
-                  "en/sdk/solana/how-to-start",
-                  "en/sdk/solana/sdk",
-                  "en/sdk/solana/network-api"
+                "dropdown": "Substrate",
+                "groups": [
+                  {
+                    "group": "Tutorials",
+                    "pages": [
+                      "en/sdk/substrate/tutorials/substrate",
+                      "en/sdk/substrate/tutorials/ink",
+                      "en/sdk/substrate/tutorials/frontier-evm"
+                    ]
+                  },
+                  {
+                    "group": "Reference",
+                    "pages": [
+                      "en/sdk/substrate/reference/substrate-batch"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Substrate",
-                "pages": [
-                  "en/sdk/substrate/tutorials/substrate",
-                  "en/sdk/substrate/tutorials/ink",
-                  "en/sdk/substrate/tutorials/frontier-evm",
-                  "en/sdk/substrate/reference/substrate-batch"
-                ]
-              },
-              {
-                "group": "Fuel",
-                "pages": [
-                  "en/sdk/fuel/fuel-datasource",
-                  "en/sdk/fuel/indexing-receipts",
-                  "en/sdk/fuel/network-api"
-                ]
-              },
-              {
-                "group": "Tron",
-                "pages": [
-                  "en/sdk/tron/quickstart"
-                ]
-              },
-              {
-                "group": "Starknet",
-                "pages": [
-                  "en/sdk/starknet/quickstart"
-                ]
-              },
-              {
-                "group": "Pipes SDK",
-                "icon": "/pipes-sdk.svg",
-                "pages": [
-                  "en/sdk/pipes/overview",
-                  "en/sdk/pipes/quickstart"
-                ]
-              },
-              {
-                "group": "Advanced Features",
-                "pages": [
-                  "en/sdk/features/batch-processing",
-                  "en/sdk/features/multichain",
-                  "en/sdk/features/external-api",
-                  "en/sdk/features/serving-graphql",
-                  "en/sdk/features/unfinalized-blocks"
-                ]
-              },
-              {
-                "group": "Setup & Development",
-                "pages": [
-                  "en/sdk/getting-started/development-environment-set-up",
-                  "en/sdk/getting-started/squid-development",
-                  "en/sdk/getting-started/squid-from-scratch"
-                ]
-              },
-              {
-                "group": "Tools",
-                "pages": [
-                  "en/sdk/tools/cli",
-                  "en/sdk/tools/external-tools"
-                ]
-              },
-              {
-                "group": "Migration",
-                "pages": [
-                  "en/sdk/migration/migrate-to-arrowsquid",
-                  "en/sdk/migration/migrate-from-thegraph"
-                ]
-              },
-              {
-                "group": "Troubleshooting",
-                "pages": [
-                  "en/sdk/tools/troubleshooting"
+                "dropdown": "Other",
+                "description": "Tron, Fuel, Starknet",
+                "groups": [
+                  {
+                    "group": "Fuel Network",
+                    "pages": [
+                      "en/sdk/fuel/fuel-datasource",
+                      "en/sdk/fuel/indexing-receipts",
+                      "en/sdk/fuel/network-api"
+                    ]
+                  },
+                  {
+                    "group": "Alternative Chains",
+                    "pages": [
+                      "en/sdk/starknet/quickstart",
+                      "en/sdk/tron/quickstart"
+                    ]
+                  },
+                  {
+                    "group": "Pipes SDK",
+                    "pages": [
+                      "en/sdk/pipes/overview",
+                      "en/sdk/pipes/quickstart"
+                    ]
+                  }
                 ]
               }
             ]
@@ -217,7 +252,7 @@
             "icon": "database",
             "groups": [
               {
-                "group": "Supported Networks",
+                "group": " ",
                 "pages": [
                   "en/supported-networks"
                 ]
@@ -236,24 +271,20 @@
           {
             "tab": "API Reference",
             "icon": "code",
-            "groups": [
+            "dropdowns": [
               {
-                "group": "Network APIs",
-                "pages": [
-                  "en/api-reference/coming-soon"
-                ]
+                "dropdown": "EVM",
+                "icon":"ethereum",
+                "openapi": "en/api-reference/evm/openapi.yaml"
               },
               {
-                "group": "SDK Reference",
-                "pages": [
-"en/api-reference/coming-soon"
-                  
-                ]
+                "dropdown": "Solana",
+                "openapi": "en/api-reference/solana/openapi.yaml"
               }
             ]
           },
           {
-            "tab": "Resources",
+            "tab": "Learn",
             "icon": "book",
             "groups": [
               {
@@ -580,21 +611,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Status",
-          "href": "https://status.sqd.dev/",
-          "icon": "heart-pulse"
-        },
-        {
-          "anchor": "Changelog",
-          "href": "https://sqd.dev/changelog",
-          "icon": "map"
-        }
-      ]
-    }
+    ]
   },
   "navbar": {
     "primary": {
@@ -613,7 +630,8 @@
     {
       "source": "/404",
       "destination": "/404.html"
-  }],
+    }
+  ],
   "seo": {
     "metatags": {
       "robots": "noindex"

@@ -1,0 +1,86 @@
+---
+title: "Solana API Overview"
+description: "Access Solana blockchain data through the SQD Network Portal"
+---
+
+# Solana API Reference
+
+The Solana API provides access to Solana blockchain data through the SQD Network Portal. This API is optimized for querying instructions, transactions, token balances, and rewards on the Solana network.
+
+## Key Features
+
+<CardGroup cols={2}>
+  <Card title="Real-time Streaming" icon="stream">
+    Get live Solana data as slots are produced
+  </Card>
+  <Card title="Historical Access" icon="clock">
+    Query complete Solana history from slot 269,828,500
+  </Card>
+  <Card title="Instruction Filtering" icon="filter">
+    Target specific programs and instruction types
+  </Card>
+  <Card title="Token Tracking" icon="coins">
+    Monitor SPL token balance changes and transfers
+  </Card>
+</CardGroup>
+
+## Supported Networks
+
+The Solana API supports:
+
+- **Solana Mainnet** - Complete transaction and instruction data
+- **Eclipse Mainnet** - Solana Virtual Machine on Ethereum
+- **Soon Network** - High-performance Solana fork
+- **Testnet/Devnet** - Development and testing environments
+
+See the complete list in [Supported Networks](/en/supported-networks).
+
+## Data Types
+
+### Instructions
+Program instructions with accounts, data, and execution details including discriminators (d1-d8).
+
+### Transactions
+Complete transaction data including signatures, account keys, and execution status.
+
+### Balances
+SOL balance changes per transaction and account.
+
+### Token Balances
+SPL token balance updates with mint, owner, and amount information.
+
+### Rewards
+Validator and staking rewards with commission details.
+
+### Logs
+Program execution logs with instruction addresses and message content.
+
+## Quick Start
+
+```bash
+# Get Solana dataset metadata
+curl https://portal.sqd.dev/datasets/solana-mainnet/metadata
+
+# Stream recent blocks with Drift protocol instructions
+curl -X POST https://portal.sqd.dev/datasets/solana-mainnet/stream \
+  -H "Content-Type: application/json" \
+  -d '{
+    "fromBlock": 317617480,
+    "toBlock": 317617482,
+    "instructions": [{
+      "programId": ["dRiftyHA39MWEi3m9aunc5MzRF1JYuBsbn6VPcn33UH"]
+    }]
+  }'
+```
+
+## Rate Limits
+
+<Warning>
+  All endpoints are rate limited at **50 requests per 10 seconds per IP**. Higher bandwidth will be available via the public network.
+</Warning>
+
+## Next Steps
+
+- Browse the [complete API specification](/en/api-reference/solana/openapi) for detailed endpoint documentation
+- See [Solana SDK examples](/en/sdk/solana/quickstart) for practical implementations
+- Join our [developer community](https://t.me/hydradevs) for support
