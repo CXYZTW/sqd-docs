@@ -1,8 +1,13 @@
 openapi: 3.1.0
 info:
-  title: SQD Network Portal API - Dataset Endpoints
-  description: API endpoints for interacting with datasets under the SQD Network Portal, specifically for the solana-mainnet dataset.
+  title: SQD Network Portal API - Solana Dataset Endpoints
+  description: API endpoints for interacting with Solana datasets under the SQD Network Portal, specifically for the solana-mainnet dataset.
   version: 1.0.0
+  x-logo:
+    url: "https://docs.sqd.dev/logos/light.png"
+  contact:
+    name: SQD Support
+    url: https://sqd.dev
 servers:
   - url: https://portal.sqd.dev/datasets/solana-mainnet
 paths:

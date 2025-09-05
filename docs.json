@@ -27,7 +27,7 @@
         "query": [
           {
             "key": "text",
-            "value": "Check out this documentation: $page"
+            "value": "Check out this documentation: {{page}}"
           }
         ]
       }
@@ -57,6 +57,7 @@
             "dropdowns": [
               {
                 "dropdown": "EVM",
+                "description": "Ethereum and EVM compatible chains",
                 "icon":"ethereum",
                 "groups": [
                   {
@@ -108,6 +109,7 @@
               },
               {
                 "dropdown": "Solana",
+                "description": "Solana and SVM compatible chains",
                 "groups": [
                   {
                     "group": "Getting Started",
@@ -157,17 +159,15 @@
                     ]
                   },
                   {
-                    "group": "Alternative Chains",
+                    "group": "Tron",
                     "pages": [
-                      "en/sdk/starknet/quickstart",
                       "en/sdk/tron/quickstart"
                     ]
                   },
                   {
-                    "group": "Pipes SDK",
+                    "group": "Starknet",
                     "pages": [
-                      "en/sdk/pipes/overview",
-                      "en/sdk/pipes/quickstart"
+                      "en/sdk/starknet/quickstart"
                     ]
                   }
                 ]
@@ -252,15 +252,14 @@
             "icon": "database",
             "groups": [
               {
-                "group": " ",
+                "group": "Networks",
                 "pages": [
-                  "en/data"
+                  "en/data/networks"
                 ]
               },
               {
                 "group": "Reference",
                 "pages": [
-                  "en/data/networks",
                   "en/data/reference/evm-api",
                   "en/data/reference/substrate-api",
                   "en/data/reference/starknet-api"
@@ -274,12 +273,14 @@
             "dropdowns": [
               {
                 "dropdown": "EVM",
-                "icon":"ethereum",
+                "icon": "ethereum",
+                "description": "Ethereum and EVM-compatible chains",
                 "openapi": "en/api-reference/evm/openapi.yaml"
               },
               {
                 "dropdown": "Solana",
-                "icon": "coins",
+                "icon": "globe", 
+                "description": "Solana blockchain",
                 "openapi": "en/api-reference/solana/openapi.yaml"
               }
             ]
@@ -643,6 +644,11 @@
       "github": "https://github.com/subsquid",
       "twitter": "https://twitter.com/subsquid",
       "telegram": "https://t.me/hydradevs"
+    }
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
     }
   }
 }
