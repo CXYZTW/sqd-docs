@@ -113,6 +113,7 @@
               {
                 "dropdown": "Solana",
                 "description": "Solana and SVM compatible chains",
+                "icon": "globe",
                 "groups": [
                   {
                     "group": "Getting Started",
@@ -132,6 +133,7 @@
               },
               {
                 "dropdown": "Substrate",
+                "icon": "link",
                 "groups": [
                   {
                     "group": "Tutorials",
@@ -152,6 +154,7 @@
               {
                 "dropdown": "Other",
                 "description": "Tron, Fuel, Starknet",
+                "icon": "fire",
                 "groups": [
                   {
                     "group": "Fuel Network",
@@ -253,19 +256,131 @@
           {
             "tab": "Data Catalog",
             "icon": "database",
-            "groups": [
+            "dropdowns": [
               {
-                "group": "Networks",
-                "pages": [
-                  "en/data/networks"
+                "dropdown": "EVM",
+                "icon": "ethereum",
+                "groups": [
+                  {
+                    "group": "Overview",
+                    "pages": [
+                      "en/data/networks/evm"
+                    ]
+                  },
+                  {
+                    "group": "Supported Networks",
+                    "pages": [
+                      "en/data/catalog/evm/ethereum-mainnet",
+                      "en/data/catalog/evm/ethereum-sepolia",
+                      "en/data/catalog/evm/ethereum-holesky",
+                      "en/data/catalog/evm/arbitrum-one",
+                      "en/data/catalog/evm/arbitrum-nova",
+                      "en/data/catalog/evm/arbitrum-sepolia",
+                      "en/data/catalog/evm/base-mainnet",
+                      "en/data/catalog/evm/base-sepolia",
+                      "en/data/catalog/evm/optimism-mainnet",
+                      "en/data/catalog/evm/optimism-sepolia",
+                      "en/data/catalog/evm/polygon-mainnet",
+                      "en/data/catalog/evm/polygon-amoy-testnet",
+                      "en/data/catalog/evm/polygon-zkevm-mainnet",
+                      "en/data/catalog/evm/avalanche-mainnet",
+                      "en/data/catalog/evm/avalanche-testnet",
+                      "en/data/catalog/evm/binance-mainnet",
+                      "en/data/catalog/evm/binance-testnet",
+                      "en/data/catalog/evm/fantom-mainnet",
+                      "en/data/catalog/evm/fantom-testnet",
+                      "en/data/catalog/evm/gnosis-mainnet",
+                      "en/data/catalog/evm/scroll-mainnet",
+                      "en/data/catalog/evm/blast-l2-mainnet",
+                      "en/data/catalog/evm/linea-mainnet",
+                      "en/data/catalog/evm/manta-pacific",
+                      "en/data/catalog/evm/mantle-mainnet",
+                      "en/data/catalog/evm/mode-mainnet",
+                      "en/data/catalog/evm/zksync-mainnet",
+                      "en/data/catalog/evm/zora-mainnet",
+                      "en/data/catalog/evm/berachain-mainnet",
+                      "en/data/catalog/evm/berachain-bartio",
+                      "en/data/catalog/evm/sonic-mainnet",
+                      "en/data/catalog/evm/sonic-testnet",
+                      "en/data/catalog/evm/taiko-mainnet",
+                      "en/data/catalog/evm/unichain-mainnet",
+                      "en/data/catalog/evm/abstract-mainnet",
+                      "en/data/catalog/evm/cyber-mainnet",
+                      "en/data/catalog/evm/ink-mainnet",
+                      "en/data/catalog/evm/superseed-mainnet"
+                    ]
+                  }
                 ]
               },
               {
-                "group": "Reference",
-                "pages": [
-                  "en/data/reference/evm-api",
-                  "en/data/reference/substrate-api",
-                  "en/data/reference/starknet-api"
+                "dropdown": "Substrate",
+                "icon": "link",
+                "groups": [
+                  {
+                    "group": "Overview",
+                    "pages": [
+                      "en/data/networks/substrate"
+                    ]
+                  },
+                  {
+                    "group": "Networks",
+                    "pages": [
+                      "en/data/catalog/substrate/polkadot",
+                      "en/data/catalog/substrate/kusama",
+                      "en/data/catalog/substrate/moonbeam",
+                      "en/data/catalog/substrate/astar",
+                      "en/data/catalog/substrate/acala"
+                    ]
+                  }
+                ]
+              },
+              {
+                "dropdown": "Solana",
+                "icon": "globe",
+                "groups": [
+                  {
+                    "group": "Overview",
+                    "pages": [
+                      "en/data/networks/solana"
+                    ]
+                  },
+                  {
+                    "group": "Networks",
+                    "pages": [
+                      "en/data/catalog/solana/solana-mainnet",
+                      "en/data/catalog/solana/eclipse-mainnet",
+                      "en/data/catalog/solana/soon-mainnet"
+                    ]
+                  }
+                ]
+              },
+              {
+                "dropdown": "Other",
+                "icon": "fire",
+                "groups": [
+                  {
+                    "group": "Fuel",
+                    "pages": [
+                      "en/data/networks/fuel",
+                      "en/data/catalog/fuel/fuel-mainnet",
+                      "en/data/catalog/fuel/fuel-testnet"
+                    ]
+                  },
+                  {
+                    "group": "Tron",
+                    "pages": [
+                      "en/data/networks/tron",
+                      "en/data/catalog/tron/tron-mainnet"
+                    ]
+                  },
+                  {
+                    "group": "Starknet",
+                    "pages": [
+                      "en/data/networks/starknet",
+                      "en/data/catalog/starknet/starknet-mainnet",
+                      "en/data/catalog/starknet/starknet-sepolia"
+                    ]
+                  }
                 ]
               }
             ]
@@ -278,13 +393,29 @@
                 "dropdown": "EVM",
                 "icon": "ethereum",
                 "description": "Ethereum and EVM-compatible chains",
-                "openapi": "en/api-reference/evm/openapi.yaml"
+                "groups": [
+                  {
+                    "group": "API",
+                    "openapi": {
+                      "source": "en/api-reference/evm/openapi.yaml",
+                      "directory": "api-reference/evm"
+                    }
+                  }
+                ]
               },
               {
                 "dropdown": "Solana",
-                "icon": "globe", 
+                "icon": "globe",
                 "description": "Solana blockchain",
-                "openapi": "en/api-reference/solana/openapi.yaml"
+                "groups": [
+                  {
+                    "group": "API",
+                    "openapi": {
+                      "source": "en/api-reference/solana/openapi.yaml",
+                      "directory": "api-reference/solana"
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -295,8 +426,7 @@
               {
                 "group": "Documentation",
                 "pages": [
-                  "en/other/glossary/glossary",
-                  "en/other/conduit-integration/conduit-integration"
+                  "en/other/glossary/glossary"
                 ]
               }
             ]

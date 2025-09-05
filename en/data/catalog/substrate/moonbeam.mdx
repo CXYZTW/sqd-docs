@@ -1,0 +1,54 @@
+---
+title: "Moonbeam"
+description: "Data catalog and field definitions for Moonbeam network"
+---
+
+# Moonbeam
+
+Network ID: `moonbeam-mainnet`
+
+## Available Data
+
+This network provides the following data types and fields:
+
+### Blocks
+
+| Field Name | Data Type | Description |
+|------------|-----------|-------------|
+| `number` | integer | Block number |
+| `hash` | string | Block hash |
+| `parent_hash` | string | Parent block hash |
+| `timestamp` | integer | Block timestamp |
+| `state_root` | string | State root hash |
+| `extrinsics_root` | string | Extrinsics root hash |
+| `spec_version` | integer | Runtime specification version |
+
+### Extrinsics
+
+| Field Name | Data Type | Description |
+|------------|-----------|-------------|
+| `index` | integer | Extrinsic index in block |
+| `hash` | string | Extrinsic hash |
+| `call` | object | Call data |
+| `signature` | object | Signature information |
+| `success` | boolean | Whether extrinsic succeeded |
+| `error` | object | Error information if failed |
+
+### Events
+
+| Field Name | Data Type | Description |
+|------------|-----------|-------------|
+| `index` | integer | Event index in block |
+| `extrinsic_index` | integer | Related extrinsic index |
+| `phase` | string | Event phase (initialization, apply_extrinsic, finalization) |
+| `pallet` | string | Pallet name |
+| `name` | string | Event name |
+| `args` | object | Event arguments |
+
+### EVM Integration
+
+| Field Name | Data Type | Description |
+|------------|-----------|-------------|
+| `ethereum_transaction_hash` | string | Ethereum-compatible transaction hash |
+| `ethereum_block_hash` | string | Ethereum-compatible block hash |
+| `ethereum_logs` | array | EVM logs for Ethereum compatibility |

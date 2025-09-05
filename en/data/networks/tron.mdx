@@ -1,0 +1,29 @@
+---
+title: "Tron Networks"
+description: "Complete list of supported Tron networks for data indexing"
+mode: "wide"
+---
+
+<Info>
+  Starting today (2025-02-23) all open private network gateways are rate limited
+  at 50 requests per 10 seconds per IP. Higher bandwidths will soon become
+  available via the public network.
+</Info>
+
+SQD's [open private network](/en/subsquid-network/overview/#open-private-network) serves Tron data via the following gateway:
+
+```
+https://v2.archive.subsquid.io/network/tron-mainnet
+```
+
+Gateway URL should be used with the [`setGateway()`](/en/tron-indexing/tron-batch-processor/general/#set-gateway) `TronBatchProcessor` configuration method:
+
+```typescript
+const processor = new TronBatchProcessor().setGateway(
+  "https://v2.archive.subsquid.io/network/tron-mainnet"
+);
+```
+
+Read more about Tron indexing in the [dedicated section](/en/tron-indexing).
+
+See [Tron API](/en/tron-indexing/network-api/tron-api) if you're looking to interface with the Tron gateway directly.

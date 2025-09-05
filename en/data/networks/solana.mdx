@@ -1,0 +1,40 @@
+---
+title: "Solana Networks"
+description: "Complete list of supported Solana and SVM-compatible networks for data indexing"
+mode: "wide"
+---
+
+<Info>
+  Starting today (2025-02-23) all open private network gateways are rate limited
+  at 50 requests per 10 seconds per IP. Higher bandwidths will soon become
+  available via the public network.
+</Info>
+
+This section lists public gateways of the [open private network](/en/subsquid-network/overview/#open-private-network) that serve data of Solana and compatible networks. Gateway URLs should be used with the [`setGateway()`](/en/solana-indexing/sdk/solana-batch/general/#set-gateway) `SolanaDataSource` configuration method, for example:
+
+```typescript
+const dataSource = new SolanaDataSource().setGateway(
+  "https://v2.archive.subsquid.io/network/solana-mainnet"
+);
+```
+
+Read more about Solana indexing in the [dedicated section](/en/solana-indexing).
+
+See [Solana API](/en/solana-indexing/network-api/solana-api) if you're looking to interface with one of these gateways directly.
+
+|        Network         |                      Gateway URL                       |
+| :--------------------: | :----------------------------------------------------: |
+|      Solana (\*)       | https://v2.archive.subsquid.io/network/solana-mainnet  |
+| Eclipse Mainnet (\*\*) | https://v2.archive.subsquid.io/network/eclipse-mainnet |
+|    Eclipse Testnet     | https://v2.archive.subsquid.io/network/eclipse-testnet |
+|      Soon Mainnet      |  https://v2.archive.subsquid.io/network/soon-mainnet   |
+| Soon Testnet (\*\*\*)  |  https://v2.archive.subsquid.io/network/soon-testnet   |
+| Soon Devnet (\*\*\*\*) |   https://v2.archive.subsquid.io/network/soon-devnet   |
+
+(\*) Solana data is available starting from block (_not slot!_) 269_828_500.
+
+(\*\*) The first block for Eclipse Mainnet is 24_641_070.
+
+(\*\*\*) The first block for Soon Testnet is 30_255.
+
+(\*\*\*\*) Soon Devnet data is available starting from block 2_471_639.
