@@ -1,0 +1,341 @@
+---
+mode: "custom"
+---
+
+export function openSearch() {
+  document.getElementById("search-bar-entry").click();
+}
+
+import { Container, Title } from "/snippets/utility.mdx";
+import { ProductTiles } from "/snippets/product-tiles.mdx";
+import { appCategories } from "/snippets/data.mdx";
+import { ProductCard } from "/snippets/product-cards.mdx";
+
+<div className="relative w-full flex items-center justify-center" style={{ height: '26rem', overflow: 'hidden'}}>
+  <div className="absolute inset-0 z-0 flex items-center bg-gradient-to-br from-blue-400 to-blue-800 dark:from-blue-900 dark:to-blue-950 mix-blend-normal">
+    <div style={{ height: '100%', width: '100%', maxHeight: '465px' }} />
+  </div>
+  <div className="relative z-10" style={{ position: 'absolute', textAlign: 'center', padding: '0 1rem', width: '100%' }}>
+    <div
+      className="text-white"
+      style={{
+       fontWeight: '600',
+       fontSize: 'clamp(28px, 8vw, 42px)',
+       margin: '0',
+       marginBottom: '1.5rem',
+       textAlign: 'center'
+      }}
+    >
+      SQD로 구축하기
+    </div>
+    <p
+      className="text-white text-opacity-90"
+      style={{
+        margin: '0 auto',
+        marginBottom: '2rem',
+        fontWeight: '500',
+        fontSize: 'clamp(16px, 4vw, 24px)',
+        maxWidth: '42rem',
+        textAlign: 'center'
+      }}
+    >
+      TypeScript SDK, 클라우드 배포, 탈중앙화 네트워크 인프라를 제공하는 완전한 블록체인 데이터 인덱싱 플랫폼입니다.
+    </p>
+    <div className="flex items-center justify-center">
+    <button
+      type="button"
+      className="hidden w-full lg:flex items-center text-sm leading-6 rounded-lg py-1.5 pl-2.5 pr-3 shadow-sm text-gray-400 dark:text-white/50 bg-background-light dark:bg-background-dark dark:brightness-[1.1] dark:ring-1 dark:hover:brightness-[1.25] ring-1 ring-gray-400/20 hover:ring-gray-600/25 dark:ring-gray-600/30 dark:hover:ring-gray-500/30 focus:outline-primary"
+      id="home-search-entry"
+      style={{
+        maxWidth: '28rem',
+      }}
+      onClick={openSearch}
+    >
+      <svg
+        className="h-4 w-4 ml-1.5 flex-none bg-gray-500 hover:bg-gray-600 dark:bg-white/50 dark:hover:bg-white/70"
+        style={{
+        marginRight: '0.5rem',
+         maskImage:
+           'url("https://mintlify.b-cdn.net/v6.5.1/solid/magnifying-glass.svg")',
+         maskRepeat: 'no-repeat',
+         maskPosition: 'center center',
+        }}
+      />
+      문서 검색 또는 질문하기
+    </button>
+    </div>
+  </div>
+</div>
+<div
+  style={{marginTop: '2rem', marginBottom: '8rem', maxWidth: '70rem', marginLeft: 'auto',
+  marginRight: 'auto', paddingLeft: '1.25rem',
+  paddingRight: '1.25rem' }}
+>
+<h2 className="text-center text-gray-900 dark:text-white text-4xl font-bold mb-8" style={{ fontSize: '1.5rem', marginTop: '6rem', marginBottom: '2.5rem' }}>
+SQD 제품
+</h2>
+<CardGroup cols={3}>
+  <Card title="TypeScript SDK" href="/ko/sdk/overview/sdk-overview" arrow={false}>
+    <div className="mb-4">
+      <div className="w-full h-32 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-lg flex items-center justify-center">
+        <svg className="w-16 h-16 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+        </svg>
+      </div>
+    </div>
+    EVM, Substrate, Solana 등을 위한 TypeScript로 블록체인 데이터 인덱서를 구축하세요.
+  </Card>
+  <Card title="SQD Cloud" href="/ko/cloud/overview/deployment-workflow" arrow={false}>
+    <div className="mb-4">
+      <div className="w-full h-32 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900 dark:to-green-800 rounded-lg flex items-center justify-center">
+        <svg className="w-16 h-16 text-green-600 dark:text-green-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+        </svg>
+      </div>
+    </div>
+    관리형 인프라와 모니터링으로 인덱서를 배포하고 확장하세요.
+  </Card>
+  <Card title="SQD 네트워크" href="/ko/network/overview/network-overview" arrow={false}>
+    <div className="mb-4">
+      <div className="w-full h-32 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-lg flex items-center justify-center">
+        <svg className="w-16 h-16 text-purple-600 dark:text-purple-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+    </div>
+    SQD 네트워크 프로토콜로 탈중앙화 데이터 인프라에 액세스하세요.
+  </Card>
+</CardGroup>
+<h2
+  className="text-center text-gray-900 dark:text-white text-4xl font-bold mb-8"
+  style={{ fontSize: "1.5rem", marginTop: "6rem", marginBottom: "2.5rem" }}
+>
+  기능
+</h2>
+<div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 my-12">
+  <div className="text-center">
+    <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mx-auto mb-4">
+      <svg className="w-8 h-8 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+    </div>
+    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+      주요 기능
+    </h3>
+  </div>
+</div>
+
+<h2
+  className="text-center text-gray-900 dark:text-white text-4xl font-bold mb-8"
+  style={{ fontSize: "1.5rem", marginTop: "6rem", marginBottom: "2.5rem" }}
+>
+  지원되는 가상 머신
+</h2>
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+  <a href="/ko/sdk/tutorials/evm-tutorials" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-blue-600 dark:text-blue-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-blue-600 dark:group-hover:text-blue-400">
+        EVM
+      </h3>
+    </div>
+  </a>
+  <a href="/ko/sdk/solana-indexing/how-to-start/solana-getting-started" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-purple-600 dark:text-purple-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-purple-600 dark:group-hover:text-purple-400">
+        Solana
+      </h3>
+    </div>
+  </a>
+  <a href="/ko/sdk/substrate/tutorials/substrate" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-pink-300 dark:hover:border-pink-600 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-pink-100 to-pink-200 dark:from-pink-900 dark:to-pink-800 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-pink-600 dark:text-pink-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-pink-600 dark:group-hover:text-pink-400">
+        Substrate
+      </h3>
+    </div>
+  </a>
+  <a href="/ko/sdk/fuel-indexing/indexing-receipts/fuel-indexing-receipts" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-orange-300 dark:hover:border-orange-600 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900 dark:to-orange-800 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-orange-600 dark:text-orange-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-orange-600 dark:group-hover:text-orange-400">
+        Fuel
+      </h3>
+    </div>
+  </a>
+  <a href="/ko/sdk/tron-indexing/indexing-tron-data/tron-indexing-data" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-indigo-100 to-indigo-200 dark:from-indigo-900 dark:to-indigo-800 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-indigo-600 dark:text-indigo-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-indigo-600 dark:group-hover:text-indigo-400">
+        Tron
+      </h3>
+    </div>
+  </a>
+  <a href="/ko/sdk/starknet/quickstart" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-cyan-300 dark:hover:border-cyan-600 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-cyan-100 to-cyan-200 dark:from-cyan-900 dark:to-cyan-800 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-cyan-600 dark:text-cyan-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
+        Starknet
+      </h3>
+    </div>
+  </a>
+  <div className="group block cursor-not-allowed">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 transition-all duration-200 opacity-60 relative">
+      <div className="w-full h-24 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-gray-500 dark:text-gray-400"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-500 dark:text-gray-400 text-center">
+        Hyperliquid
+      </h3>
+      <div className="absolute top-2 right-2">
+        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+          곧 출시
+        </span>
+      </div>
+    </div>
+  </div>
+  <a href="/ko/supported-networks" className="group block">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-200 hover:shadow-lg">
+      <div className="w-full h-24 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-lg flex items-center justify-center mb-4">
+        <svg
+          className="w-12 h-12 text-gray-600 dark:text-gray-300"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+      </div>
+      <h3 className="font-semibold text-gray-900 dark:text-white text-center group-hover:text-gray-600 dark:group-hover:text-gray-400">
+        225개 이상의 모든 네트워크 보기
+      </h3>
+    </div>
+  </a>
+</div>
+<h2
+  className="text-center text-gray-900 dark:text-white text-4xl font-bold mb-8"
+  style={{ fontSize: "1.5rem", marginTop: "6rem", marginBottom: "2.5rem" }}
+>
+  벤치마크
+</h2>
+<div className="bg-gray-50 dark:bg-gray-900 rounded-xl p-8 my-12">
+  <div className="text-center">
+    <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mx-auto mb-4">
+      <svg
+        className="w-8 h-8 text-gray-500 dark:text-gray-400"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+      </svg>
+    </div>
+    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+      성능 벤치마크
+    </h3>
+    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      곧 출시 예정: 다양한 네트워크와 사용 사례에서 SQD와 다른 인덱싱 솔루션을
+      비교하는 포괄적인 성능 벤치마크입니다.
+    </p>
+  </div>
+</div>
+<h2
+  className="text-center text-gray-900 dark:text-white text-4xl font-bold mb-8"
+  style={{ fontSize: "1.5rem", marginTop: "6rem", marginBottom: "2.5rem" }}
+>
+  더 알아보기
+</h2>
+<CardGroup cols={3}>
+  <Card
+    title="커뮤니티"
+    icon="users"
+    href="https://t.me/hydradevs"
+    arrow={false}
+  >
+    지원과 토론을 위해 텔레그램 커뮤니티에 참여하세요.
+  </Card>
+  <Card
+    title="API 참조"
+    icon="code"
+    href="/ko/api-reference/evm"
+    arrow={false}
+  >
+    지원되는 모든 네트워크에 대한 완전한 API 문서입니다.
+  </Card>
+  <Card title="FAQ" icon="question" href="/ko/network/faq/network-faq" arrow={false}>
+    SQD와 블록체인 인덱싱에 대한 자주 묻는 질문입니다.
+  </Card>
+</CardGroup>
+
+<div className="flex justify-center mt-12 mb-4">
+  <a
+    href="https://github.com/subsquid/squid-sdk"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group inline-flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-background-dark transition-all hover:scale-110 hover:border-primary dark:hover:border-primary-light"
+  >
+    <svg
+      className="h-6 w-6 bg-primary dark:bg-primary-light transition-colors group-hover:bg-white"
+      style={{
+        maskImage: 'url("https://mintlify.b-cdn.net/v6.6.0/brands/github.svg")',
+        maskRepeat: "no-repeat",
+        maskPosition: "center center",
+      }}
+    ></svg>
+  </a>
+</div>
+
+</div>
